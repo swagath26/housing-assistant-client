@@ -45,7 +45,7 @@ const Header = () => {
               <ul className='navbar-nav text-light'>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/buy" className="nav-link text-light">Buy</Link></li>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/sell" className="nav-link text-light">Sell</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link className="nav-link text-light">Estimate</Link></li>
+                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/price_estimator" className="nav-link text-light">Estimate</Link></li>
                 {!isAuthenticated && 
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas">
                   <Link to="/accounts" className='nav-link text-light' data-bs-toggle='modal' data-bs-target='#accounts'>Signin</Link>
@@ -57,8 +57,8 @@ const Header = () => {
                     Accounts
                   </button>
                     <ul className="dropdown-menu" aria-labelledby="appsDropdown">
-                      <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li>
-                      <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li>
+                      {/* <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li> */}
+                      {/* <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li> */}
                       <li data-bs-dismiss="offcanvas"><Link className="dropdown-item" onClick={handleSignout}>Sign Out</Link></li>
                     </ul>
                 </li>
@@ -147,9 +147,9 @@ const PropertyCard = ({ property }) => {
                 </div>
               </div>
               <div className='col-2' >
-                <i className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
+                {/* <i className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
                   <img src="/static/img/fav-logo.png" alt='fav-icon'/>
-                </i>
+                </i> */}
               </div>
             </div>
             <div id={`property_${property.id}`} className="carousel slide" style={{zIndex:'0'}}>
@@ -361,7 +361,7 @@ const Homepage = () => {
           </div>
 
           <div className='col-lg-4 p-3'>
-            <div className='card nav-card' id='rent-card'>
+            <div className='card nav-card' id='rent-card' onClick={() => navigate(`/price_estimator`)}>
               <div className='row p-2 m-0 d-flex justify-content-center'>
                 <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center p-2'>
                   <img src="/static/img/rent.jpg" style={{width:'100%', maxWidth:'350px'}} alt='rent'/>

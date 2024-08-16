@@ -382,9 +382,9 @@ const Buy = () => {
                 </div>
               </div>
               <div className='col-2' >
-                <a className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
+                {/* <a className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
                   <img src="/static/img/fav-logo.png" alt="fav-icon"/>
-                </a>
+                </a> */}
               </div>
             </div>
             <div id={`property_${property.id}`} className="carousel slide" style={{zIndex:'0'}}>
