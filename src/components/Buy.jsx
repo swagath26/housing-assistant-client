@@ -486,7 +486,7 @@ const Buy = () => {
               }}/>
               <label className="btn btn-outline-primary" style={{minWidth:'45px'}} htmlFor="bed3">3</label>
             </div>
-
+5
             <div className='col px-2'>
               <input type="checkbox" className="btn-check" id="bed4" checked={bedsFilter.includes(4)} onChange={(event) => {
                 setBedsFilter(event.target.checked ? [...bedsFilter, 4] : bedsFilter.filter((n) => n !== 4));

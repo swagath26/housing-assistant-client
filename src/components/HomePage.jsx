@@ -267,7 +267,7 @@ const RecommendedSection = () => {
         <div className='row px-3 mx-0'>
           <div className='col-8 col-md-9 col-xl-10 px-0'>
             <h1 className='fs-3'>Homes For You</h1>
-            <p className='lead fs-6'>Based on market insights and recent activity</p>
+            <p className='lead fs-6'>Recently listed</p>
           </div>
           <div className='col-1'></div>
           <div className='col-3 col-md-2 col-xl-1 px-0 d-flex align-items-center justify-content-between'>
@@ -281,6 +281,8 @@ const RecommendedSection = () => {
         </div>
 
         {isLoading && <p>Loading Properties...</p>}
+        {!isLoading && properties.length === 0 &&
+        <div className='text-center w-100'>No properties listed yet</div>}
         {!isLoading && properties.length > 0 &&
         <ul id='property-scroll-div' className='property-scroll-div pb-2 p-0 my-0' onScroll={updateScrollIconVisibility}>
           {properties.map((property) => (
