@@ -312,6 +312,7 @@ const Buy = () => {
           ).addTo(map);
           new_marker.bindPopup(property.price)
           markers[property.id] = new_marker;
+          map.invalidateSize();
         }
       });
     }

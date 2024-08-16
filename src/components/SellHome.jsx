@@ -50,7 +50,6 @@ const SellHome = () => {
                 data.append(key, formData[key]);
             }
         }
-        console.log(data, formData);
         images.forEach((image, index) => {
             data.append('images', image, `images[${index}]`);
         });
@@ -58,8 +57,9 @@ const SellHome = () => {
             const response = await axios.post('/api/properties_list/', data, 
                 {headers: { 'X-CSRFToken': csrftoken }}
             );
-            if(response.statusText==='Created') {
+            if(response.status===201) {
                 navigate('/sell');
+                window.alert('Congratulations.. Your Property is listed Successfully!')
             }
             else {
                 console.log(response);
@@ -83,22 +83,22 @@ const SellHome = () => {
 
     useEffect(() => {
         async function initMap() {
-            mapRef.current = window.L.map('map', {
+            mapRef.current = window.L?.map('map', {
                 center: [formData.latitude, formData.longitude],
                 zoom: 10
             });
     
-            window.L.maptilerLayer({
+            window.L?.maptilerLayer({
                 apiKey: 'cIpY5YW2swGKoC5mFkdK',
                 style: window.L.MaptilerStyle.STREETS,
             }).addTo(mapRef.current);
         }
         if (!mapRef.current) {
             initMap();
-            markerRef.current = window.L.marker([formData.latitude, formData.longitude]).addTo(mapRef.current);
-            markerRef.current.dragging.enable();
+            markerRef.current = window.L?.marker([formData.latitude, formData.longitude]).addTo(mapRef.current);
+            markerRef.current?.dragging.enable();
 
-            markerRef.current.on('dragend', function() {
+            markerRef.current?.on('dragend', function() {
                 const v = markerRef.current.getLatLng();
                 setFormData((prevFormData) => ({ 
                     ...prevFormData, 
@@ -136,7 +136,7 @@ const SellHome = () => {
     useEffect(() => {
         const showToast = () => {
             if(!isAuthenticated)
-                window.bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast')).show();
+                window.bootstrap?.Toast.getOrCreateInstance(document.getElementById('liveToast')).show();
             clearTimeout(toastTimeOut);
         }
         const toastTimeOut = setTimeout(showToast, 1000);
@@ -210,7 +210,7 @@ const SellHome = () => {
                             </button>
 
                             <div className="px-3 fs-4 text-center flex-grow-1">
-                                Move the marker to the locate your property
+                                Move the marker to locate your property
                             </div>
 
                             <button type="button" className="btn btn-success" onClick={() => {
