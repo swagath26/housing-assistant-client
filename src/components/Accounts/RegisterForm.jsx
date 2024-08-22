@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react"
 import { FaLock, FaUser, FaKey, FaIdCard } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import axios from "axios";
-import AuthContext from "./AuthContext";
+import AuthContext from "../../context/AuthContext";
 
 const RegisterForm = () => {
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Sell = () => {
 
     return (
-        <div className="d-flex p-md-5 align-items-center flex-column flex-xl-row">
+        <div className="d-flex p-md-5 align-items-center flex-column flex-xl-row" style={{minHeight: '90vh'}}>
             <div className="col-xl-6 px-3">
                 <img src="/static/img/sell-property2.jpg" className="w-100" alt=""/>
             </div>

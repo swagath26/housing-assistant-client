@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext, useRef } from "react";
 import axios from "axios";
-import getCookie from './getCookie';
-import AuthContext from "./AuthContext";
+import getCookie from '../utils/getCookie';
+import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import './SellHome.css';
+import geocode from "../utils/geocode";
 
 const SellHome = () => {
 
@@ -108,13 +109,6 @@ const SellHome = () => {
             });
         }
     }, []);
-
-    const geocode = async (address) => {
-        const response = await axios.get(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`);
-        const lat = response.data[0]?.lat;
-        const lng = response.data[0]?.lon;
-        return [lat, lng];
-    };
 
     const updateMap = async () => {
         let [lat, lng] = await geocode(formData.address + ',' + formData.location);

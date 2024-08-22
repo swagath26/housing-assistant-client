@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SigninForm from "./SigninForm";
-import RegisterForm from "./RegisterForm";
+import SigninForm from "../components/Accounts/SigninForm";
+import RegisterForm from "../components/Accounts/RegisterForm";
 
 const Accounts = () => {
     const [navigate, setNavigate] = useState('signinform');

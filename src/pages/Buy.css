@@ -2,9 +2,6 @@
     .web-header {
         height: 10vh;
     }
-    .search-row {
-        height: 8vh;
-    }
     .filter-row {
         height: 8vh;
     }
@@ -15,7 +12,7 @@
         height: 80vh;
     }
     .property-section {
-        height: 90vh;
+        height: 100%;
     }
 }
 
@@ -23,9 +20,6 @@
     .web-header {
         height: 75px;
     }
-    .search-row {
-        height: 60px;
-    }
     .filter-row {
         height: 60px;
     }
@@ -36,17 +30,8 @@
         height: calc(100vh - 75px - 60px - 2vh);
     }
     .property-section {
-        height: calc(100vh - 75px);
+        height: 100%;
     }
-}
-
-@media(min-width: 992px) {
-    /* #filter-toggle-button {
-        display: none;
-    } */
-    /* #filter-collapse {
-        display: block;
-    } */
 }
 
 @media(min-width: 992px) {
@@ -58,24 +43,22 @@
     }
 }
 
-@media(max-width: 992px) {
-    #map-toggle-button {
-        display: block;
-    }
-    #map-collapse {
-        display: none;
-        transition: display 0.3s ease-in-out;
-    }
+#property-section{
+    display: block;
 }
 
-/* .map-section {
-    position: absolute;
-} */
-/* #search-section {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-} */
+@media(max-width: 992px) {
+    #property-section{
+        display: none;
+    }
+    #map-toggle-button:checked ~ #property-section{
+        display: block;
+    }
+    /* #map-collapse {
+        display: none;
+        transition: display 0.3s ease-in-out;
+    } */
+}
 
 .card-top-section:hover .carousel-controls {
     display: block;
@@ -88,9 +71,16 @@
 
 .favourites-icon {
     opacity: 0.6;
-    /* transition: opacity 0.5s ease-in-out; */
 }
 
 .favourites-icon:hover{
     opacity: 0.9;
+}
+
+.loaded {
+    opacity: 1;
+}
+
+.loading {
+    opacity: 0.5;
 }

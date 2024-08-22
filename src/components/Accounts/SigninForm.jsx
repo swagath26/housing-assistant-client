@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react"
 import { FaLock, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import AuthContext from "./AuthContext";
+import AuthContext from "../../context/AuthContext";
 
 
 const SigninForm = () => {

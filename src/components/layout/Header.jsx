@@ -1,20 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import AuthContext from './AuthContext';
-import Accounts from './Accounts';
+import AuthContext from '../../context/AuthContext';
+import Accounts from '../../pages/Accounts';
 import axios from 'axios';
+import './Header.css';
 
 const Header = () => {
 
   const isAuthenticated = useContext(AuthContext).isAuthenticated;
   const setIsAuthenticated = useContext(AuthContext).setIsAuthenticated;
 
+  const [isDarkHeader, setIsDarkHeader] = useState(false);
   const location = useLocation();
-  if ((location.pathname === '/' || location.pathname === '')) {
-    return null;
-  }
+
+  useEffect(() => {
+    setIsDarkHeader((location.pathname === '/' || location.pathname === ''));
+  }, [location]);
 
   const handleSignout = async () => {
     const response = await axios.get('/api/members/signout/');
@@ -24,9 +27,9 @@ const Header = () => {
   }
 
   return (
-    <header className="header web-header">
+    <header className="header px-2 py-0 pt-1 w-100" style={{position: 'absolute', top: 0}}>
 
-    <nav className="navbar navbar-expand-md py-0">
+    <nav className="navbar navbar-expand-md py-0" data-bs-theme={isDarkHeader ? 'dark' : ''}>
         <div className='container-fluid'>
           <Link to="/" className="navbar-brand">
             <div className='d-none d-lg-block'>
@@ -59,8 +62,8 @@ const Header = () => {
                     Accounts
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="appsDropdown">
-                    {/* <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li> */}
-                    {/* <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li> */}
+                    <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li>
+                    <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li>
                     <li data-bs-dismiss="offcanvas"><Link className="dropdown-item" onClick={handleSignout}>Sign Out</Link></li>
                   </ul>
                 </li>
