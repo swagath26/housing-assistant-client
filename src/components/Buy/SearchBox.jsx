@@ -13,8 +13,8 @@ const SearchBox = ({searchQuery, setSearchQuery, handleSearchChange}) => {
 
     return (
         <div className='input-group'>
-            <input type='text' id="search-input" value={searchQuery} onChange={(event) => {setSearchQuery(event.target.value)}} className='form-control' placeholder='Search by location, address, etc.' aria-label='Search' aria-describedby='search-addon'/>
-            <button onClick={handleSearchChange} className='btn btn-outline-secondary' id='search-addon'>
+            <input type='text' id="search-input" style={{height: '50px'}} value={searchQuery} onChange={(event) => {setSearchQuery(event.target.value)}} className='form-control' placeholder='Search by location' aria-label='Search' aria-describedby='search-addon'/>
+            <button onClick={handleSearchChange} className='btn btn-light' id='search-addon' style={{border: '0.8px solid rgb(222, 226, 230)'}}>
             <i className='fas fa-search'></i>
             </button>
         </div>

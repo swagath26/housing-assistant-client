@@ -77,8 +77,8 @@ const LatestListings = () => {
         <div className="container pb-5 pt-3 px-0">
           <div className='row px-3 mx-0'>
             <div className='col-8 col-md-9 col-xl-10 px-0'>
-              <h1 className='fs-3'>Homes For You</h1>
-              <p className='lead fs-6'>Recently listed</p>
+              <h1 className='fs-3 mb-2'>Homes For You</h1>
+              <p className='lead fs-6 mb-3'>Recently listed</p>
             </div>
             <div className='col-1'></div>
             <div className='col-3 col-md-2 col-xl-1 px-0 d-flex align-items-center justify-content-between'>

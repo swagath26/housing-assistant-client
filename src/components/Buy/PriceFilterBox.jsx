@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const PriceFilterBox = ({setMinPriceFilter, minPriceFilter, maxPriceFilter, setMaxPriceFilter, setFilterPrice, setCurrentPage}) => {
+const PriceFilterBox = ({minPriceFilter, maxPriceFilter, updateFilter, updateFilterName}) => {
 
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
@@ -41,19 +41,19 @@ const PriceFilterBox = ({setMinPriceFilter, minPriceFilter, maxPriceFilter, setM
                 </div>
                 <div className='row'>
                     <button className='btn btn-primary' onClick={() => {
-                        setFilterPrice(minPrice && 
+                        updateFilterName('price', minPrice && 
                             maxPrice ? 
                                 `Rs ${minPrice/100000}L - ${maxPrice/100000}L` : 
                                 (minPrice ? 
                                     `Rs ${minPrice/100000}L+` :
                                     (maxPrice ? 
                                         `Upto Rs ${maxPrice/100000}L` : 
-                                        'Price')
+                                        'Price Range')
                                 )
                         );
-                        setCurrentPage(1);
-                        setMinPriceFilter(minPrice);
-                        setMaxPriceFilter(maxPrice);
+
+                        updateFilter('minPriceFilter', minPrice);
+                        updateFilter('maxPriceFilter', maxPrice);
                         }}>
                         Apply
                     </button>

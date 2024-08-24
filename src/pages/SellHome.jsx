@@ -138,7 +138,7 @@ const SellHome = () => {
 
     
     return (
-        <div className="container d-flex flex-column align-items-stretch" style={{minHeight: '75vh'}}>
+        <div className="container d-flex flex-column align-items-stretch" style={{minHeight: '90vh', paddingTop: '10vh'}}>
             
             <div className="d-flex flex-grow-1 flex-column sell-details">
                 

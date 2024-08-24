@@ -13,7 +13,7 @@ import SearchBox from '../components/Buy/SearchBox';
 import geocode from '../utils/geocode';
 import initMap from '../utils/initMap';
 import debounce from '../utils/debounce';
-import throttle from '../utils/throttle';
+import FooterComponent from '../components/layout/FooterComponent';
 
 const Buy = () => {
 
@@ -34,14 +34,24 @@ const Buy = () => {
   searchQueryRef.current = searchQuery;
   const [sortBy, setSortBy] = useState('');
 
-  const [minPriceFilter, setMinPriceFilter] = useState('');
-  const [maxPriceFilter, setMaxPriceFilter] = useState('');
-  const [minAreaFilter, setMinAreaFilter] = useState('');
-  const [maxAreaFilter, setMaxAreaFilter] = useState('');
-  const [bedsFilter, setBedsFilter] = useState([]);
-  const [minBedsFilter, setMinBedsFilter] = useState('');
-  const [minBathsFilter, setMinBathsFilter] = useState('');
-  const [homeTypeFilter, setHomeTypeFilter] = useState([]);
+  const [filters, setFilters] = useState({
+    minPriceFilter : '',
+    maxPriceFilter : '',
+    minAreaFilter : '',
+    maxAreaFilter : '',
+    bedsFilter : [],
+    minBedsFilter : '',
+    minBathsFilter : '',
+    homeTypeFilter : []
+  });
+
+  const [filterNames, setFilterNames] = useState({
+    price: 'Price Range',
+    beds: 'Beds',
+    baths: 'Baths',
+    area: 'Area',
+    homeType: 'Type'
+  });
 
   const [minLatFilter, setMinLatFilter] = useState();
   const [maxLatFilter, setMaxLatFilter] = useState();
@@ -56,12 +66,6 @@ const Buy = () => {
 
   const [refetch, setRefetch] = useState(false);
   const abortController = useRef(null);
-
-  const [filterPrice, setFilterPrice] = useState('Price');
-  const [filterBeds, setFilterBeds] = useState('Beds');
-  const [filterBaths, setFilterBaths] = useState('Baths');
-  const [filterArea, setFilterArea] = useState('Area');
-  const [filterHomeType, setFilterHomeType] = useState('Type');
 
   const handleMapFilter = () => {
     console.log('handle map');
@@ -106,9 +110,7 @@ const Buy = () => {
     else {
       hasMounted.current = true;
     }
-  }, [currentPage, sortBy, minLatFilter, maxLatFilter, minLngFilter, maxLngFilter, 
-    minPriceFilter, maxPriceFilter, minAreaFilter, maxAreaFilter, minBathsFilter, 
-    bedsFilter, minBedsFilter, homeTypeFilter]);
+  }, [currentPage, sortBy, minLatFilter, maxLatFilter, minLngFilter, maxLngFilter, filters]);
 
   const newFetch = () => {
     if(!isLoading) {
@@ -120,6 +122,7 @@ const Buy = () => {
   };
 
   const fetchProperties = async () => {
+    console.log('fetch');
     const controller = new AbortController();
     abortController.current = controller;
     try {
@@ -132,14 +135,14 @@ const Buy = () => {
           max_lat: maxLatFilter,
           min_lng: minLngFilter,
           max_lng: maxLngFilter,
-          min_price: minPriceFilter,
-          max_price: maxPriceFilter,
-          min_area: minAreaFilter,
-          max_area: maxAreaFilter,
-          beds: bedsFilter.join(','),
-          min_bed: minBedsFilter,
-          min_bath: minBathsFilter,
-          type: homeTypeFilter.join(',')
+          min_price: filters.minPriceFilter,
+          max_price: filters.maxPriceFilter,
+          min_area: filters.minAreaFilter,
+          max_area: filters.maxAreaFilter,
+          beds: filters.bedsFilter.join(','),
+          min_bed: filters.minBedsFilter,
+          min_bath: filters.minBathsFilter,
+          type: filters.homeTypeFilter.join(',')
         },
         signal: controller.signal,
       });
@@ -214,150 +217,130 @@ const Buy = () => {
     }
   };
 
-  const clearFilters = () => {
-    setMinPriceFilter('');
-    setMaxPriceFilter('');
-    setMinAreaFilter('');
-    setMaxAreaFilter('');
-    setMinBedsFilter('');
-    setMinBathsFilter('');
-    setHomeTypeFilter([]);
-    setBedsFilter([]);
+  const updateFilter = (filterName, value) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [filterName]: value
+    }));
     setCurrentPage(1);
-    setFilterPrice('Price');
-    setFilterBaths('Baths');
-    setFilterBeds('Beds');
-    setFilterArea('Area');
-    setFilterHomeType('Type');
-  }
+  };
 
-  return (
-    <div className='buy-container row m-0' style={{height: '100vh', paddingTop: '10vh'}}>
+  const updateFilterName = (filter, name) => {
+    setFilterNames(prevFilterNames => ({
+      ...prevFilterNames,
+      [filter]: name
+    }));
+  };
 
-      <div className="map-section col-lg-6 col-xl-5 col-xxl-4 d-flex px-0 flex-column">
-        <div className='row search-row m-0 d-flex p-2 align-items-center'>
-          <div className='col-lg-10 col-8 p-0 py-2'>
-            <SearchBox 
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              handleSearchChange={handleSearchChange}
+  const clearFilters = () => {
+    setFilters({
+      minPriceFilter : '',
+      maxPriceFilter : '',
+      minAreaFilter : '',
+      maxAreaFilter : '',
+      bedsFilter : [],
+      minBedsFilter : '',
+      minBathsFilter : '',
+      homeTypeFilter : []
+    });
+    setFilterNames({
+      price: 'Price Range',
+      beds: 'Beds',
+      baths: 'Baths',
+      area: 'Area',
+      homeType: 'Type'
+    });
+    setCurrentPage(1);
+  };
+
+  const FilterSection = () => {
+    return (
+      <div className='d-flex justify-content-evenly py-3'>
+        <div className='d-flex justify-content-center'>
+          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.price}
+          </button>
+          <div className="dropdown-menu m-0 p-0">
+            <PriceFilterBox 
+              minPriceFilter={filters.minPriceFilter}
+              maxPriceFilter={filters.maxPriceFilter}
+              updateFilter={updateFilter}
+              updateFilterName={updateFilterName}
             />
           </div>
-
-          <div className='col-2 px-0 ps-2 d-flex justify-content-center'>
-            <button className='btn btn-outline-dark' style={{width:'100%'}} id='filter-toggle-button' data-bs-toggle='collapse' data-bs-target='#filter-collapse'>Filter</button>
-          </div>
         </div>
-
-        <div className='row m-0 flex-grow-1' id='map-collapse'>
-          <div className='map-box d-flex h-100 align-items-top justify-content-center px-0'>
-            <div ref={mapContainerRef} className='row map-row h-100 w-100'></div>
-          </div>
+        <div className='d-flex justify-content-center'>
+          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.beds}
+          </button>
+            <div className="dropdown-menu m-0 p-0">
+              <BedsFilterBox
+                bedsFilter={filters.bedsFilter}
+                minBedsFilter={filters.minBedsFilter}
+                updateFilter={updateFilter}
+                updateFilterName={updateFilterName}
+              />
+            </div>
         </div>
-
+        <div className='d-flex justify-content-center'>
+          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.baths}
+          </button>
+            <div className="dropdown-menu m-0 p-0" id='baths-dropdown'>
+            <BathsFilterBox
+              minBathsFilter={filters.minBathsFilter}
+              updateFilter={updateFilter}
+              updateFilterName={updateFilterName}
+            />
+            </div>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.area}
+          </button>
+            <div className="dropdown-menu m-0 p-0">
+              <AreaFilterBox 
+                minAreaFilter={filters.minAreaFilter}
+                maxAreaFilter={filters.maxAreaFilter}
+                updateFilter={updateFilter}
+                updateFilterName={updateFilterName}
+              />
+            </div>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.homeType}
+          </button>
+            <div className="dropdown-menu m-0 p-0">
+              <HomeTypeFilterBox 
+                homeTypeFilter={filters.homeTypeFilter}
+                updateFilter={updateFilter}
+                updateFilterName={updateFilterName}
+              />
+            </div>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <button className='btn text-nowrap' onClick={clearFilters}>
+            Clear
+          </button>
+        </div>
       </div>
+    )
+  }
 
-      <input id='map-toggle-button' type='checkbox' style={{background: 'white', color: 'black', outline: '1px solid black', position: 'fixed', zIndex: 900, bottom: '30px'}} 
-        onClick={() => mapRef.current?.invalidateSize()}>
-      </input>
-
-      <div className='property-section col-lg-6 col-xl-7 col-xxl-8 px-2' id='property-section'>
-
-        <div className='filter-section collapse' id="filter-collapse">
-          <div className='filter-row d-flex align-items-center'>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn btn-text-nowrap dropdown-toggle' style={{width:'85%'}} data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-                {filterPrice}
-              </button>
-              <div className="dropdown-menu m-0 p-0">
-                <PriceFilterBox 
-                  setMinPriceFilter={setMinPriceFilter}
-                  minPriceFilter={minPriceFilter}
-                  maxPriceFilter={maxPriceFilter}
-                  setMaxPriceFilter={setMaxPriceFilter}
-                  setFilterPrice={setFilterPrice}
-                  setCurrentPage={setCurrentPage}
-                />
-              </div>
-            </div>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn btn-text-nowrap dropdown-toggle' style={{width:'85%'}} data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-                {filterBeds}
-              </button>
-                <div className="dropdown-menu m-0 p-0">
-                  <BedsFilterBox
-                    bedsFilter={bedsFilter}
-                    setBedsFilter={setBedsFilter}
-                    minBedsFilter={minBedsFilter}
-                    setMinBedsFilter={setMinBedsFilter}
-                    setFilterBeds={setFilterBeds}
-                    setCurrentPage={setCurrentPage}
-                  />
-                </div>
-            </div>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn btn-text-nowrap dropdown-toggle' style={{width:'85%'}} data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-                {filterBaths}
-              </button>
-                <div className="dropdown-menu m-0 p-0" id='baths-dropdown'>
-                <BathsFilterBox 
-                  minBathsFilter={minBathsFilter}
-                  setMinBathsFilter={setMinBathsFilter}
-                  setFilterBaths={setFilterBaths}
-                  setCurrentPage={setCurrentPage} 
-                />
-                </div>
-            </div>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn btn-text-nowrap dropdown-toggle' style={{width:'85%'}} data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-                {filterArea}
-              </button>
-                <div className="dropdown-menu m-0 p-0">
-                  <AreaFilterBox 
-                    setMinAreaFilter={setMinAreaFilter}
-                    minAreaFilter={minAreaFilter}
-                    maxAreaFilter={maxAreaFilter}
-                    setMaxAreaFilter={setMaxAreaFilter}
-                    setFilterArea={setFilterArea}
-                    setCurrentPage={setCurrentPage}
-                  />
-                </div>
-            </div>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn btn-text-nowrap dropdown-toggle' style={{width:'85%'}} data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-                {filterHomeType}
-              </button>
-                <div className="dropdown-menu m-0 p-0">
-                  <HomeTypeFilterBox 
-                    setHomeTypeFilter={setHomeTypeFilter} 
-                    homeTypeFilter={homeTypeFilter}
-                    setFilterHomeType={setFilterHomeType}
-                    setCurrentPage={setCurrentPage}
-                  />
-                </div>
-            </div>
-            <div className='col-2 d-flex justify-content-center'>
-              <button className='btn text-nowrap' onClick={clearFilters} style={{width:'85%'}}>
-                Clear
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className={`list-section ${isLoading? 'loading' : 'loaded'}`} id="list-section">
-
+  const ListSection = () => {
+    return (
+      <div className={`list-section ${isLoading? 'loading' : 'loaded'}`} id="list-section">
           <div className='row p-2 m-0 list-section-header'>
             <div className='col-6'>
               <div>
                 <b>Homes for sale</b>
               </div>
-
               {isLoading ?
               <div>Properties Loading...</div>
               : <div>{propertyCount} Result{propertyCount>1 && 's'}</div>
               }
             </div>
-            
             <div className='col-6 d-flex justify-content-end'>
               <SortButton
                 sortBy={sortBy}
@@ -365,18 +348,17 @@ const Buy = () => {
               />
             </div>
           </div>
-
           <div className='row p-1 m-0 list-section-body'>
-            {!isLoading && error && 
+            {!isLoading && error &&
             <div className='list-error'>
               <p>Error: {error.message}</p>
-            </div> 
+            </div>
             }
             {properties.length > 0 &&
             <div className='list-loaded'>
               <div className='row p-0 m-0'>
                 {properties.map((property) => (
-                  <div key={property.id} className='col-12 col-md-6 col-lg-12 col-xl-6 col-xxl-4 d-flex justify-content-center p-1'
+                  <div key={property.id} className='col-12 col-md-6 col-lg-12 col-xl-6 d-flex justify-content-center p-1'
                     onMouseEnter={() => {
                       markers[property.id]?.setIcon(icon_hov)}
                     }
@@ -387,7 +369,6 @@ const Buy = () => {
                   </div>
                 ))}
               </div>
-
               <div className='row py-4 m-0'>
                 <div className='col-4 d-flex justify-content-center'>
                   <button className='btn btn-primary' onClick={handlePreviousPage}>Previous</button>
@@ -407,17 +388,43 @@ const Buy = () => {
             </div>
             }
           </div>
-
-          <footer className="footer py-2 bg-light mt-auto list-section-footer" style={{height:'10vh'}}>
-            <div className="container">
-              <p className="text-center text-muted">&copy; 2024 Housing</p>
-            </div>
-          </footer>
-        
         </div>
+    )
+  }
 
+  return (
+    <div className='buy-section' style={{height: '100vh', paddingTop: '10vh'}}>
+
+      <div className='filter-section'>
+        <FilterSection />
       </div>
       
+      <div className="map-section d-flex px-0 flex-column h-100" style={{position: 'relative', zIndex: 1}}>
+        <div className='row search-row ms-5 d-flex p-2 align-items-center' style={{position: 'absolute', zIndex: 1000}}>
+          <div className='p-0 py-2'>
+            <SearchBox
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              handleSearchChange={handleSearchChange}
+            />
+          </div>
+        </div>
+        <div className='row m-0 flex-grow-1' id='map-collapse' style={{zIndex: 900}}>
+          <div className='map-box d-flex h-100 px-0'>
+            <div ref={mapContainerRef} className='map-row h-100 w-100'></div>
+          </div>
+        </div>
+      </div>
+
+      <input id='map-toggle-button' type='checkbox' style={{background: 'white', color: 'black', outline: '1px solid black', position: 'fixed', zIndex: 3, bottom: '30px'}}
+        onClick={() => mapRef.current?.invalidateSize()}>
+      </input>
+
+      <div className='property-section px-2' style={{background: 'white', position: 'relative', zIndex: 2}}>
+        <ListSection />
+        <FooterComponent />
+      </div>
+
     </div>
   );
 };

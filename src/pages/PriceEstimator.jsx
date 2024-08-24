@@ -42,8 +42,8 @@ const PriceEstimator = () => {
     const [estimatedPrice, setEstimatedprice] = useState('');
 
     return (
-        <div>
-            <h1 className="my-4 px-5">Estimate Price for Your property</h1>
+        <div className="p-md-4 p-3" style={{minHeight: '80vh', marginTop: '10vh'}}>
+            <h1 className="my-4 px-5 fs-2 mb-5">Estimate Price for Your property</h1>
             <form id="estimate-form" ref={estimateFormRef} className="sell-form needs-validation ps-5 pe-lg-2 pe-5 flex-column" noValidate>
 
                 <div className="my-4 col-lg-4">

@@ -1,0 +1,16 @@
+.card-top-section:hover .carousel-controls {
+    display: block;
+    opacity: '1';
+}
+
+.carousel-controls {
+    display: none;
+}
+
+.favourites-icon {
+    opacity: 0.6;
+}
+
+.favourites-icon:hover{
+    opacity: 0.9;
+}

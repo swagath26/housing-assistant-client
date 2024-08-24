@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import './PropertyCard.css';
 
 const PropertyCard = ({ property}) => {
     const IndianRupeeFormatter = new Intl.NumberFormat('en-IN', {
@@ -8,7 +9,7 @@ const PropertyCard = ({ property}) => {
     });
 
     return (
-        <div className='card property-card' style={{width:'100vh'}}>
+        <div className='card property-card w-100'>
 
           <div className='card-top-section'>
             <div className="row m-0 p-0 pt-1" style={{position:'absolute', zIndex:'1', width:'100%'}}>
@@ -48,12 +49,7 @@ const PropertyCard = ({ property}) => {
         
           <div className="card-body p-2" style={{height:'130px'}}>
             <div className='row mb-2'>
-              <div className='col-7'>
-                <h5 className='card-title fw-bold m-0'>{IndianRupeeFormatter.format(property.price)}</h5>
-              </div>
-              <div className='col-5 d-flex justify-content-center'>
-                <button style={{fontSize:'13px'}} className='btn btn-outline-primary py-0' onClick={() => {}}>View <i className='fa-solid fa-location-dot' /></button>
-              </div>
+              <h5 className='card-title fw-bold m-0'>{IndianRupeeFormatter.format(property.price)}</h5>
             </div>
             <div className='card-text'>
               <p style={{fontSize:'16px', margin:'0', textOverflow:'ellipsis', overflow:'hidden', textWrap:'nowrap'}}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const HomeTypeFilterBox = ({setHomeTypeFilter, homeTypeFilter, setFilterHomeType, setCurrentPage}) => {
+const HomeTypeFilterBox = ({homeTypeFilter, updateFilter, updateFilterName}) => {
 
   const [homeType, setHomeType] = useState([]);
 
@@ -47,12 +47,11 @@ const HomeTypeFilterBox = ({setHomeTypeFilter, homeTypeFilter, setFilterHomeType
             <div className='row my-1'>
               <button className='btn btn-primary' onClick={() => {
                 if(homeType.length > 0)
-                  setFilterHomeType(`Type (${homeType.length})`)
+                  updateFilterName('homeType', `Type (${homeType.length})`)
                 else
-                setFilterHomeType('Type')
-                
-                setCurrentPage(1);
-                setHomeTypeFilter(homeType);
+                  updateFilterName('homeType', 'Type')
+
+                updateFilter('homeTypeFilter', homeType);
                 }}>
                 Apply
               </button>

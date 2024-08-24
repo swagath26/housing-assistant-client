@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const AreaFilterBox = ({setMinAreaFilter, minAreaFilter, maxAreaFilter, setMaxAreaFilter, setFilterArea, setCurrentPage}) => {
+const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilterName}) => {
     
     const [minArea, setMinArea] = useState('');
     const [maxArea, setMaxArea] = useState('');
@@ -41,7 +41,7 @@ const AreaFilterBox = ({setMinAreaFilter, minAreaFilter, maxAreaFilter, setMaxAr
                 </div>
                 <div className='row'>
                 <button className='btn btn-primary' onClick={() => {
-                    setFilterArea(minArea && 
+                    updateFilterName('area', minArea && 
                         maxArea ? 
                             `${minArea} - ${maxArea} sqft` : 
                             (minArea ?
@@ -51,9 +51,9 @@ const AreaFilterBox = ({setMinAreaFilter, minAreaFilter, maxAreaFilter, setMaxAr
                                     'Area')
                             )
                     );
-                    setCurrentPage(1);
-                    setMinAreaFilter(minArea);
-                    setMaxAreaFilter(maxArea);
+
+                    updateFilter('minAreaFilter', minArea);
+                    updateFilter('maxAreaFilter', maxArea);
                     }}>
                     Apply
                 </button>

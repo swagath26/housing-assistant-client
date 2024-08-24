@@ -186,10 +186,6 @@ const SigninForm = () => {
                     </div>
                 </div>
 
-                <div className="row p-2">
-                    <Link className="link" style={{textDecoration:'none'}}>Forgot Password?</Link>
-                </div>
-
             </form>
         </div>
         </div> 

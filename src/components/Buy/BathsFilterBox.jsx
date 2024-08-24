@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const BathsFilterBox = ({minBathsFilter, setMinBathsFilter, setFilterBaths, setCurrentPage}) => {
+const BathsFilterBox = ({minBathsFilter, updateFilter, updateFilterName}) => {
 
   const [minBaths, setMinBaths] = useState();
 
@@ -54,12 +54,11 @@ const BathsFilterBox = ({minBathsFilter, setMinBathsFilter, setFilterBaths, setC
           <div className='row my-1 mt-3 m-0'>
             <button className='btn btn-primary' data-bs-dismiss='dropdown' data-bs-target='#baths-dropdown' onClick={() => {
               if(minBaths !== '')
-                setFilterBaths(`${minBaths}+ baths`);
+                updateFilterName('baths', `${minBaths}+ baths`);
               else
-                setFilterBaths('Baths');
+              updateFilterName('baths', 'Baths');
 
-              setCurrentPage(1);
-              setMinBathsFilter(minBaths);
+              updateFilter('minBathsFilter', minBaths);
               }}>
               Apply
             </button>

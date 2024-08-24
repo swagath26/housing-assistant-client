@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const BedsBox = ({bedsFilter, setBedsFilter, minBedsFilter, setMinBedsFilter, setFilterBeds, setCurrentPage}) => {
+const BedsBox = ({bedsFilter, minBedsFilter, updateFilter, updateFilterName}) => {
     
     const [isExactMatchBeds, setIsExactMatchBeds] = useState(false);
     const [beds, setBeds] = useState([]);
@@ -96,15 +96,14 @@ const BedsBox = ({bedsFilter, setBedsFilter, minBedsFilter, setMinBedsFilter, se
           <div className='row my-1 m-0'>
             <button className='btn btn-primary' onClick={() => {
               if(minBeds !== '')
-                setFilterBeds(`${minBeds}+ bds`)
+                updateFilterName('beds', `${minBeds}+ bds`)
               else if(beds.length > 0)
-                setFilterBeds(`${beds.sort().join(', ')} bds`)
+                updateFilterName('beds', `${beds.sort().join(', ')} bds`)
               else
-                setFilterBeds('Beds')
-              
-              setCurrentPage(1);
-              setBedsFilter(beds);
-              setMinBedsFilter(minBeds);
+                updateFilterName('beds', 'Beds')
+
+              updateFilter('bedsFilter', beds);
+              updateFilter('minBedsFilter', minBeds);
               }}>
               Apply
             </button>
