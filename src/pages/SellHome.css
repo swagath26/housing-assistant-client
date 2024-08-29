@@ -44,3 +44,14 @@ ul {
   .sell-details ul .active {
     border-bottom: 2px solid black;
   }
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}

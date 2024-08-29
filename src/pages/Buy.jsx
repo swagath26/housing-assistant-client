@@ -93,8 +93,6 @@ const Buy = () => {
       mapRef.current = initMap(mapContainerRef.current, center);
       mapRef.current?.addEventListener('move', debounce(handleMapFilter, 200));
       mapRef.current?.addEventListener('zoom', debounce(handleMapFilter, 200));
-      document.querySelector('.map-row a img').style.display = 'none';
-      document.querySelector('.leaflet-bottom.leaflet-right').style.display = 'none';
       if (searchQueryRef.current)
         handleSearchChange();
       else {

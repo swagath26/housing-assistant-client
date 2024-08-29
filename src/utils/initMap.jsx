@@ -9,6 +9,9 @@ const initMap = (mapContainer, center) => {
       style: window.L.MaptilerStyle.STREETS,
     }).addTo(map_obj);
 
+    document.querySelector('.leaflet-container a img').style.display = 'none';
+    document.querySelector('.leaflet-control-attribution').style.display = 'none';
+
     return map_obj;
 }
 
