@@ -1,12 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import './PropertyCard.css';
+import { INRFormat } from '../../utils/CurrencyFormat';
 
 const PropertyCard = ({ property}) => {
-    const IndianRupeeFormatter = new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR'
-    });
 
     return (
         <div className='card property-card w-100'>
@@ -49,7 +46,7 @@ const PropertyCard = ({ property}) => {
         
           <div className="card-body p-2" style={{height:'130px'}}>
             <div className='row mb-2'>
-              <h5 className='card-title fw-bold m-0'>{IndianRupeeFormatter.format(property.price)}</h5>
+              <h5 className='card-title fw-bold m-0'>{INRFormat(property.price)}</h5>
             </div>
             <div className='card-text'>
               <p style={{fontSize:'16px', margin:'0', textOverflow:'ellipsis', overflow:'hidden', textWrap:'nowrap'}}>

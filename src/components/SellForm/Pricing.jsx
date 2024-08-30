@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { FormContext } from "../../context/FormContext";
 import { StepContext } from "../../context/StepContext";
 import BackButton from "./UI/BackButton";
-import NumberWithUnitInputField from "./UI/NumberWithUnitInputField";
 import SelectionInput from "./UI/SelectionInput";
 import handleSubmitForm from "../../utils/handleSubmitForm";
 import AuthContext from "../../context/AuthContext";
+import PriceInputField from "./UI/PriceInputField";
 
 const Pricing = () => {
     const isAuthenticated = useContext(AuthContext).isAuthenticated;
@@ -49,7 +49,7 @@ const Pricing = () => {
                 />
 
                 <div className="tw-flex tw-flex-col tw-gap-2">
-                    <NumberWithUnitInputField 
+                    <PriceInputField 
                         label="Set a Price"
                         field="price"
                         unit={{name: 'INR', dir: 'left'}}
@@ -72,14 +72,14 @@ const Pricing = () => {
             <div className="tw-flex tw-justify-between tw-items-center tw-py-4">
                 <BackButton prevStep={prevStep} />
                 <div className="tw-flex tw-items-center">
-                    {formData.price && (formData.hometype || formData.hometype === '') && (
+                    {formData.price && (formData.hometype || formData.hometype === '') ? (
                         <button 
                             type="button" 
                             className="tw-font-medium tw-px-4 lg:tw-mx-6 tw-text-slate-900" 
                         >
                             Preview
                         </button>
-                    )
+                    ) : ''
                     }
                     <div>
                         <button 
