@@ -17,11 +17,11 @@ const PropertyCard = ({ property }) => {
                     {property.home_type}
                   </div>
                 </div>
-                <div className='col-2' >
+                {/* <div className='col-2' >
                   <i className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
                     <img src="/static/img/fav-logo.png" alt='fav-icon'/>
                   </i>
-                </div>
+                </div> */}
               </div>
               <div id={`property_${property.id}`} className="carousel slide" style={{zIndex:'0'}}>
                 <div className="carousel-inner">

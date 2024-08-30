@@ -5,47 +5,8 @@
     height: 8vh;
 }
 
-.buy-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-}
-
-.filter-section { grid-area: 1 / 1 / 2 / 2; }
-.map-section { grid-area: 2 / 1 / 3 / 2; }
-.property-section { grid-area: 1 / 2 / 3 / 3; }
-
-@media(max-width: 992px) {
-    .buy-section {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-    }
-    .filter-section { grid-area: 1 / 1 / 2 / 1; }
-    .map-section { grid-area: 2 / 1 / 3 / 1; }
-    .property-section { grid-area: 2 / 1 / 3 / 1; }
-}
-
 .property-section {
     overflow-y: scroll;
-}
-
-@media(min-width: 992px) {
-    #map-toggle-button {
-        display: none;
-    }
-}
-
-.property-section{
-    display: block;
-}
-
-@media(max-width: 992px) {
-    .property-section{
-        display: none;
-    }
-    #map-toggle-button:checked ~ .property-section{
-        display: block;
-    }
 }
 
 .loaded {

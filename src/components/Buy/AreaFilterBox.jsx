@@ -26,7 +26,7 @@ const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilter
                 </div>
                 <div className='row mb-3'>
                 <div className='col-5 d-flex justify-content-center'>
-                    <input className='ms-4 ps-2 filter-input' placeholder='No Min' id='min-area' 
+                    <input className='ms-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Min' id='min-area' 
                     value={minArea} onChange={(event) => {setMinArea(event.target.value)}} 
                     style={{maxWidth:'110px'}} />
                 </div>
@@ -34,7 +34,7 @@ const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilter
                     <p>-</p>
                 </div>
                 <div className='col-5 d-flex justify-content-center'>
-                    <input className='me-4 ps-2 filter-input' placeholder='No Max' id='max-area' 
+                    <input className='me-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Max' id='max-area' 
                     value={maxArea} onChange={(event) => {setMaxArea(event.target.value)}} 
                     style={{maxWidth:'110px'}} />
                 </div>

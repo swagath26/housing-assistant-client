@@ -36,7 +36,7 @@ const PropertyInfo = () => {
                 </div>
 
                 <div className="tw-flex tw-flex-col tw-gap-4">
-                    <p className="tw-font-medium tw-text-slate-700">Select all those matching</p>
+                    <p className="tw-font-medium tw-text-slate-700">Select the available room features</p>
                     <div className="tw-flex tw-gap-4 xl:tw-gap-8 tw-flex-wrap">
                         <CheckboxInputField 
                             label="Balcony"

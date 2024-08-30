@@ -1,7 +1,7 @@
-const initMap = (mapContainer, center) => {
+const initMap = (mapContainer, center, zoom=11) => {
     const map_obj = window.L.map(mapContainer, {
       center: center,
-      zoom: 11
+      zoom: zoom
     });
 
     window.L.maptilerLayer({

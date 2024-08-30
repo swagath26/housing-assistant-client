@@ -36,21 +36,21 @@ const FormTemplate = () => {
     const renderTitle = [
         'Location Info',
         'Locate in Map',
-        'Property Info',
+        'Property Features',
         'Additional Info',
         'Upload Images',
         'Pricing',
-        'Finish',
+        '',
     ];
 
     const renderInfo = [
-        'Please provide your location details',
-        'Move the marker to spot the location',
-        'Please provide your property details',
-        'Please provide some additional information (optional)',
-        'Upload the latest pictures of your property',
-        'Enter a price for your property',
-        'Finish',
+        'Provide your property location details',
+        'Move the marker to the exact location',
+        'Specify the number of rooms and other amenities',
+        'Provide a brief description and area of the property (optional)',
+        'Showcase your property with high-quality images',
+        'Select the property type and set a price',
+        '',
     ];
 
     return (

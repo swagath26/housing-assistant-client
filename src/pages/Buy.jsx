@@ -68,7 +68,7 @@ const Buy = () => {
   const abortController = useRef(null);
 
   const handleMapFilter = () => {
-    console.log('handle map');
+    // console.log('handle map');
     if (mapRef.current?.getBounds()._southWest.lat !== mapRef.current?.getBounds()._northEast.lat && mapRef.current?.getBounds()._southWest.lng !== mapRef.current?.getBounds()._northEast.lng) {
       setMinLatFilter(mapRef.current?.getBounds()._southWest.lat);
       setMaxLatFilter(mapRef.current?.getBounds()._northEast.lat);
@@ -120,7 +120,7 @@ const Buy = () => {
   };
 
   const fetchProperties = async () => {
-    console.log('fetch');
+    // console.log('fetch');
     const controller = new AbortController();
     abortController.current = controller;
     try {
@@ -154,13 +154,13 @@ const Buy = () => {
     }
     catch (error) {
       if (error.name !== 'CanceledError') {
-        console.log('canceled error');
+        // console.log('canceled error');
         setError(error);
         setIsLoading(false);
         abortController.current = null;
       }
       else {
-        console.log('other error, set refetch');
+        // console.log('other error, set refetch');
         abortController.current = null;
         setRefetch(true);
       }
@@ -253,9 +253,11 @@ const Buy = () => {
 
   const FilterSection = () => {
     return (
-      <div className='d-flex justify-content-evenly py-3'>
+      <div className={`tw-flex-wrap tw-justify-evenly tw-gap-4 tw-py-2
+         ${isFilterToggled ? 'tw-hidden' : 'tw-flex'} lg:tw-flex`}>
+
         <div className='d-flex justify-content-center'>
-          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+          <button className='btn dropdown-toggle tw-border tw-border-solid tw-border-slate-300 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.price}
           </button>
           <div className="dropdown-menu m-0 p-0">
@@ -268,8 +270,8 @@ const Buy = () => {
           </div>
         </div>
         <div className='d-flex justify-content-center'>
-          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-            {filterNames.beds}
+          <button className='btn dropdown-toggle tw-border tw-border-solid tw-border-slate-300 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+            {filterNames.beds} & {filterNames.baths}
           </button>
             <div className="dropdown-menu m-0 p-0">
               <BedsFilterBox
@@ -278,22 +280,16 @@ const Buy = () => {
                 updateFilter={updateFilter}
                 updateFilterName={updateFilterName}
               />
+              <BathsFilterBox
+                minBathsFilter={filters.minBathsFilter}
+                updateFilter={updateFilter}
+                updateFilterName={updateFilterName}
+              />
             </div>
         </div>
+        
         <div className='d-flex justify-content-center'>
-          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
-            {filterNames.baths}
-          </button>
-            <div className="dropdown-menu m-0 p-0" id='baths-dropdown'>
-            <BathsFilterBox
-              minBathsFilter={filters.minBathsFilter}
-              updateFilter={updateFilter}
-              updateFilterName={updateFilterName}
-            />
-            </div>
-        </div>
-        <div className='d-flex justify-content-center'>
-          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+          <button className='btn dropdown-toggle tw-border tw-border-solid tw-border-slate-300 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.area}
           </button>
             <div className="dropdown-menu m-0 p-0">
@@ -306,7 +302,7 @@ const Buy = () => {
             </div>
         </div>
         <div className='d-flex justify-content-center'>
-          <button className='btn btn-outline-dark dropdown-toggle' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
+          <button className='btn dropdown-toggle tw-border tw-border-solid tw-border-slate-300 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.homeType}
           </button>
             <div className="dropdown-menu m-0 p-0">
@@ -328,7 +324,7 @@ const Buy = () => {
 
   const ListSection = () => {
     return (
-      <div className={`list-section ${isLoading? 'loading' : 'loaded'}`} id="list-section">
+      <div className={`list-section tw-h-full ${isLoading? 'loading' : 'loaded'}`} id="list-section">
           <div className='row p-2 m-0 list-section-header'>
             <div className='col-6'>
               <div>
@@ -390,35 +386,66 @@ const Buy = () => {
     )
   }
 
+  const [isMapToggled, setIsMapToggled] = useState(true);
+  const [isFilterToggled, setIsFilterToggled] = useState(true);
+
+  useEffect(() => {
+    mapRef.current?.invalidateSize();
+  }, [isMapToggled]);
+
   return (
-    <div className='buy-section' style={{height: '100vh', paddingTop: '10vh'}}>
+    <div className='tw-h-screen tw-w-screen tw-pt-[10vh] tw-flex tw-flex-col tw-items-center lg:tw-items-stretch lg:tw-flex-row'>
 
-      <div className='filter-section'>
-        <FilterSection />
-      </div>
-      
-      <div className="map-section d-flex px-0 flex-column h-100" style={{position: 'relative', zIndex: 1}}>
-        <div className='row search-row ms-5 d-flex p-2 align-items-center' style={{position: 'absolute', zIndex: 1000}}>
-          <div className='p-0 py-2'>
-            <SearchBox
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              handleSearchChange={handleSearchChange}
-            />
+      <div className='tw-flex tw-flex-col tw-grow tw-w-full lg:tw-w-auto'>
+        
+        <div className='px-4 tw-py-2'>
+          <FilterSection />
+        </div>
+
+        <div className="map-section d-flex px-0 flex-column h-100" style={{position: 'relative', zIndex: 1}}>
+          <div className='row search-row ms-5 d-flex p-2 align-items-center' style={{position: 'absolute', zIndex: 1000}}>
+            <div className='p-0 py-2'>
+              <SearchBox
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                handleSearchChange={handleSearchChange}
+              />
+            </div>
+          </div>
+          <div className='row m-0 flex-grow-1' id='map-collapse' style={{zIndex: 900}}>
+            <div className='map-box d-flex h-100 px-0'>
+              <div ref={mapContainerRef} className='map-row h-100 w-100'></div>
+            </div>
           </div>
         </div>
-        <div className='row m-0 flex-grow-1' id='map-collapse' style={{zIndex: 900}}>
-          <div className='map-box d-flex h-100 px-0'>
-            <div ref={mapContainerRef} className='map-row h-100 w-100'></div>
-          </div>
-        </div>
+
       </div>
 
-      <input id='map-toggle-button' type='checkbox' style={{background: 'white', color: 'black', outline: '1px solid black', position: 'fixed', zIndex: 3, bottom: '30px'}}
-        onClick={() => mapRef.current?.invalidateSize()}>
-      </input>
+      <div className='tw-absolute tw-z-10 tw-bottom-0 tw-flex tw-gap-4 tw-bg-white
+        tw-w-full lg:tw-hidden tw-justify-center tw-py-3'>
+        <button
+          className='tw-bg-slate-900 tw-w-32 tw-py-3 tw-rounded-lg
+            tw-font-medium tw-text-slate-100 tw-cursor-pointer'
+            onClick={() => {
+              setIsMapToggled(!isMapToggled);
+            }}
+        >
+          {isMapToggled ? 'List View' : 'Map View'}
+        </button>
 
-      <div className='property-section px-2' style={{background: 'white', position: 'relative', zIndex: 2}}>
+        <button
+          className='tw-bg-slate-900 tw-w-32 tw-py-3 tw-rounded-lg
+            tw-font-medium tw-text-slate-100 tw-cursor-pointer'
+            onClick={() => {
+              setIsFilterToggled(!isFilterToggled);
+            }}
+        >
+          Filter
+        </button>
+
+      </div>
+
+      <div className={`property-section px-2 tw-h-full tw-w-screen ${isMapToggled ? 'tw-hidden' : ''} lg:tw-w-1/2 lg:tw-flex tw-flex-col`} style={{background: 'white', position: 'relative', zIndex: 2}}>
         <ListSection />
         <FooterComponent />
       </div>

@@ -44,11 +44,11 @@ const HeroBanner = () => {
       // </div>
       <div className="view vh-100 d-flex flex-column justify-content-between align-items-center" style={{padding: '12vh 0'}}>
         <img src={heroimg} alt='' className='vh-100 w-100 object-fit-cover' style={{position: 'absolute', top: '0', zIndex: -1}} />
-        <div className="text-center text-light">
+        <div className="text-center text-light tw-pt-4">
           <h1 className="display-5 fw-bold">Welcome To Housing</h1>
           <p className="fs-6 fw-light">Find your dream home with us</p>
         </div>
-        <div className='col-5 text-light'>
+        <div className='col-lg-5 col-8 text-light'>
           <div className='input-group'>
             <input type='text' id="search-input" value={searchQuery} onChange={(event) => {setSearchQuery(event.target.value)}} className='form-control' placeholder='Search by location, address, etc.' aria-label='Search' aria-describedby='search-addon'/>
             <button onClick={handleSearch} className='btn btn-outline-light' id='search-addon'>

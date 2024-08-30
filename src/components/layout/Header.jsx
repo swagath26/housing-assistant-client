@@ -49,8 +49,7 @@ const Header = () => {
             <div className='offcanvas-body justify-content-end pe-3'>
               <ul className='navbar-nav'>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/buy" className="nav-link">Buy</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/sell" className="nav-link">Sell</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/price_estimator" className="nav-link">Estimate</Link></li>
+                <li className="nav-item px-2" data-bs-dismiss="offcanvas" data-bs-toggle={isAuthenticated ? '' : 'modal'} data-bs-target='#accounts'><Link to="/sell_home" className="nav-link">Sell</Link></li>
                 {!isAuthenticated && 
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas">
                   <Link to="/accounts" className='nav-link' data-bs-toggle='modal' data-bs-target='#accounts'>Signin</Link>
@@ -62,8 +61,8 @@ const Header = () => {
                     Accounts
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="appsDropdown">
-                    <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li>
-                    <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li>
+                    {/* <li data-bs-dismiss="offcanvas"><Link className="dropdown-item">Profile</Link></li> */}
+                    {/* <li data-bs-dismiss="offcanvas"><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li> */}
                     <li data-bs-dismiss="offcanvas"><Link className="dropdown-item" onClick={handleSignout}>Sign Out</Link></li>
                   </ul>
                 </li>

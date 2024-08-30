@@ -82,10 +82,10 @@ const FeatureSection = () => {
       <div className='container p-5 mt-2'>
         <div className='row'>
   
-          <div className='col-lg-4 p-3'>
+          <div className='col-lg-6 p-3'>
             <div className='card nav-card' id='buy-card' onClick={() => navigate('/buy')}>
               <div className='row p-2 m-0 d-flex justify-content-center'>
-                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center p-2'>
+                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center justify-content-center p-2'>
                     <img src="/static/img/buy.jpg" style={{width:'100%', maxWidth:'350px'}} alt='buy'/>
                 </div>
                 <div className='col-lg-12 col-12 col-md-6 p-2'>
@@ -106,10 +106,10 @@ const FeatureSection = () => {
             </div>
           </div>
   
-          <div className='col-lg-4 p-3'>
+          <div className='col-lg-6 p-3'>
             <div className='card nav-card' id='sell-card' onClick={() => navigate('/sell')}>
               <div className='row p-2 m-0 d-flex justify-content-center'>
-                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center p-2'>
+                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center justify-content-center p-2'>
                   <img src="/static/img/sell.jpg" style={{width:'100%', maxWidth:'350px'}} alt='sell'/>
                 </div>
                 <div className='col-lg-12 col-12 col-md-6 p-2'>
@@ -130,10 +130,10 @@ const FeatureSection = () => {
             </div>
           </div>
   
-          <div className='col-lg-4 p-3'>
+          {/* <div className='col-lg-4 p-3'>
             <div className='card nav-card' id='rent-card' onClick={() => navigate('/price_estimator')}>
               <div className='row p-2 m-0 d-flex justify-content-center'>
-                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center p-2'>
+                <div className='col-lg-12 col-12 col-md-6 d-flex align-items-center justify-content-center p-2'>
                   <img src="/static/img/rent.jpg" style={{width:'100%', maxWidth:'350px'}} alt='rent'/>
                 </div>
                 <div className='col-lg-12 col-12 col-md-6 p-2'>
@@ -152,7 +152,7 @@ const FeatureSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
   
         </div>
       </div>

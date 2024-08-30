@@ -6,6 +6,8 @@ import SelectionInput from "./UI/SelectionInput";
 import handleSubmitForm from "../../utils/handleSubmitForm";
 import AuthContext from "../../context/AuthContext";
 import PriceInputField from "./UI/PriceInputField";
+import Estimate from "../../utils/Estimate";
+import { INRPriceFormat } from "../../utils/CurrencyFormat";
 
 const Pricing = () => {
     const isAuthenticated = useContext(AuthContext).isAuthenticated;
@@ -14,16 +16,34 @@ const Pricing = () => {
     const [isValidated, setIsValidated] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const [isEstimating, setIsEstimating] = useState(false);
+
+    const [estimatedPrice, setEstimatedPrice] = useState('');
+
+    const handleEstimatePrice = async () => {
+        if(!isNaN(formData.area) && formData.area?.trim() !== '') {
+            setIsEstimating(true);
+            const price = await Estimate(formData);
+            setIsEstimating(false);
+            setEstimatedPrice(`₹ ${INRPriceFormat(price)}`);
+            setIsEstimating(false);
+        }
+        else {
+            window.alert('Area of the property is required for estimating price. Please fill in the additional details section and try again..')
+        }
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsValidated(true);
         if(isAuthenticated) {
             const form = event.target.closest('form');
-            if (form.checkValidity() && (formData.hometype || formData.hometype === '')) {
+            if (form.checkValidity() && (formData.home_type || formData.home_type === '')) {
                 setIsSubmitting(true);
                 const response = await handleSubmitForm(formData);
                 setIsSubmitting(false);
-                if(response.success) nextStep();
+                if(response.success) 
+                    nextStep();
             }
         }
         else {
@@ -41,7 +61,7 @@ const Pricing = () => {
 
                 <SelectionInput 
                     label="Select the type of property"
-                    field="hometype"
+                    field="home_type"
                     options={['House', 'Apartment', 'Studio', 'Multi-Family']}
                     formData={formData}
                     updateFormData={updateFormData}
@@ -50,7 +70,7 @@ const Pricing = () => {
 
                 <div className="tw-flex tw-flex-col tw-gap-2">
                     <PriceInputField 
-                        label="Set a Price"
+                        label="Set your Price"
                         field="price"
                         unit={{name: 'INR', dir: 'left'}}
                         placeholder="e.g. 1,80,00,000"
@@ -61,9 +81,11 @@ const Pricing = () => {
                     />
                     <button 
                         type="button" 
-                        className="tw-self-start tw-font-medium tw-text-slate-500 tw-py-2" 
+                        className="tw-self-start tw-font-medium tw-text-slate-500 tw-ps-2 tw-py-2" 
+                        onClick={handleEstimatePrice}
                     >
-                        Get an estimated price
+                        {estimatedPrice ? estimatedPrice : 
+                            isEstimating ? 'Please wait...' : 'Get an estimated price'}
                     </button>
                 </div>
                 
@@ -72,12 +94,12 @@ const Pricing = () => {
             <div className="tw-flex tw-justify-between tw-items-center tw-py-4">
                 <BackButton prevStep={prevStep} />
                 <div className="tw-flex tw-items-center">
-                    {formData.price && (formData.hometype || formData.hometype === '') ? (
+                    {formData.price && (formData.home_type || formData.home_type === '') ? (
                         <button 
                             type="button" 
                             className="tw-font-medium tw-px-4 lg:tw-mx-6 tw-text-slate-900" 
                         >
-                            Preview
+                            {/* Preview */}
                         </button>
                     ) : ''
                     }

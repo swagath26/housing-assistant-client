@@ -35,7 +35,7 @@ const AdditionalInfo = () => {
                         className='tw-w-full tw-min-h-32 tw-px-4 tw-pt-2 tw-pb-3 tw-border tw-border-solid tw-rounded-lg 
                             tw-border-neutral-300 focus-visible:tw-outline-blue-800'
                         id="description_input" 
-                        placeholder="e.g. Beautiful home with bla bla bla"
+                        placeholder="e.g. Spacious 3-bedroom apartment with a beautiful view"
                         name="description"
                         value={formData.description || ''}
                         onChange={(event) => handleInputChange(event, formData, updateFormData)}

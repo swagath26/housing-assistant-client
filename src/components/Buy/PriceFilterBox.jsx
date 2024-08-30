@@ -26,7 +26,7 @@ const PriceFilterBox = ({minPriceFilter, maxPriceFilter, updateFilter, updateFil
                 </div>
                 <div className='row mb-3'>
                     <div className='col-5 d-flex justify-content-center'>
-                    <input className='ms-4 ps-2 filter-input' placeholder='No Min' id='min-price' 
+                    <input className='ms-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Min' id='min-price' 
                         value={minPrice} onChange={(event) => {setMinPrice(event.target.value)}} 
                         style={{maxWidth:'110px'}} />
                     </div>
@@ -34,7 +34,7 @@ const PriceFilterBox = ({minPriceFilter, maxPriceFilter, updateFilter, updateFil
                     <p>-</p>
                     </div>
                     <div className='col-5 d-flex justify-content-center'>
-                    <input className='me-4 ps-2 filter-input' placeholder='No Max' id='max-price' 
+                    <input className='me-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Max' id='max-price' 
                         value={maxPrice} onChange={(event) => {setMaxPrice(event.target.value)}} 
                         style={{maxWidth:'110px'}} />
                     </div>
