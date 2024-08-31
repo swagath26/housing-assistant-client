@@ -421,7 +421,7 @@ const Buy = () => {
 
       </div>
 
-      <div className='tw-absolute tw-z-10 tw-bottom-0 tw-flex tw-gap-4 tw-bg-white
+      <div className='tw-fixed tw-z-10 tw-bottom-0 tw-flex tw-gap-4 tw-bg-white
         tw-w-full lg:tw-hidden tw-justify-center tw-py-3'>
         <button
           className='tw-bg-slate-900 tw-w-32 tw-py-3 tw-rounded-lg
