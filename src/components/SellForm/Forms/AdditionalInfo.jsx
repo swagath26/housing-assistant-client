@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { FormContext } from "../../context/FormContext";
-import handleNext from '../../utils/handleNext';
-import { StepContext } from "../../context/StepContext";
-import NextButton from "./UI/NextButton";
-import BackButton from "./UI/BackButton";
-import handleInputChange from "../../utils/handleInputChange";
-import NumberWithUnitInputField from "./UI/NumberWithUnitInputField";
+import { FormContext } from "../../../context/FormContext";
+import { handleNext, handleInputChange } from "../../../utils/FormUtils";
+import { StepContext } from "../../../context/StepContext";
+import NextButton from "../UI/NextButton";
+import BackButton from "../UI/BackButton";
+import NumberWithUnitInputField from "../UI/NumberWithUnitInputField";
 
 const AdditionalInfo = () => {
     const { formData, updateFormData } = useContext(FormContext);

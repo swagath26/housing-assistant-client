@@ -1,4 +1,4 @@
-import handleInputCheck from '../../../utils/handleInputCheck';
+import { handleInputCheck } from "../../../utils/FormUtils";
 
 const CheckboxInputField = ({ label, field, formData, updateFormData }) => {
     

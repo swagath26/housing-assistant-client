@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { FormContext } from "../../context/FormContext";
-import { StepContext } from "../../context/StepContext";
-import NextButton from "./UI/NextButton";
-import BackButton from "./UI/BackButton";
+import { FormContext } from "../../../context/FormContext";
+import { StepContext } from "../../../context/StepContext";
+import NextButton from "../UI/NextButton";
+import BackButton from "../UI/BackButton";
 
 const UploadImages = () => {
     const { formData, updateFormData } = useContext(FormContext);

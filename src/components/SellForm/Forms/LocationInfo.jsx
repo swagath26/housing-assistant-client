@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import { FormContext } from "../../context/FormContext";
-import { StepContext } from "../../context/StepContext";
-import geocode from "../../utils/geocode";
-import TextInputField from "./UI/TextInputField";
+import { FormContext } from "../../../context/FormContext";
+import { StepContext } from "../../../context/StepContext";
+import geocode from "../../../utils/geocode";
+import TextInputField from "../UI/TextInputField";
 
 const LocationInfo = () => {
 

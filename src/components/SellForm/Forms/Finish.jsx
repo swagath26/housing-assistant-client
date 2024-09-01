@@ -1,4 +1,4 @@
-import success from '../../assets/img/success.png';
+import success from '../../../assets/img/success.png';
 
 const Finish = () => {
     return (

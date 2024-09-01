@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
-import { FormContext } from "../../context/FormContext";
-import { StepContext } from "../../context/StepContext";
-import BackButton from "./UI/BackButton";
-import SelectionInput from "./UI/SelectionInput";
-import handleSubmitForm from "../../utils/handleSubmitForm";
-import AuthContext from "../../context/AuthContext";
-import PriceInputField from "./UI/PriceInputField";
-import Estimate from "../../utils/Estimate";
-import { INRPriceFormat } from "../../utils/CurrencyFormat";
+import { FormContext } from "../../../context/FormContext";
+import { StepContext } from "../../../context/StepContext";
+import BackButton from "../UI/BackButton";
+import SelectionInput from "../UI/SelectionInput";
+import handleSubmitForm from "../../../utils/handleSubmitForm";
+import AuthContext from "../../../context/AuthContext";
+import PriceInputField from "../UI/PriceInputField";
+import Estimate from "../../../utils/Estimate";
+import { INRPriceFormat } from "../../../utils/CurrencyFormat";
 
 const Pricing = () => {
     const isAuthenticated = useContext(AuthContext).isAuthenticated;
