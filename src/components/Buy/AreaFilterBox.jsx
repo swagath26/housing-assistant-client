@@ -13,7 +13,7 @@ const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilter
     return (
         <div className='card' style={{maxWidth:'320px'}}>
             <div className='card-header'>
-                <h6>Area in Sqft</h6>
+                <h6 className='tw-font-medium'>Area in Sqft</h6>
             </div>
             <div className='card-body'>
                 <div className='row mb-1'>
@@ -24,39 +24,40 @@ const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilter
                     <b>Maximum</b>
                 </div>
                 </div>
-                <div className='row mb-3'>
-                <div className='col-5 d-flex justify-content-center'>
-                    <input className='ms-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Min' id='min-area' 
-                    value={minArea} onChange={(event) => {setMinArea(event.target.value)}} 
-                    style={{maxWidth:'110px'}} />
+                <div className='row mb-4'>
+                    <div className='col-5 d-flex justify-content-center'>
+                        <input className='tw-text-center tw-border-slate-400 tw-mt-1 ms-4 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Min' id='min-area' 
+                        value={minArea} onChange={(event) => {setMinArea(event.target.value)}} 
+                        style={{maxWidth:'110px'}} />
+                    </div>
+                    <div className='col-2 d-flex tw-mt-1 tw-text-3xl tw-text-slate-400 justify-content-center'>
+                        <p>-</p>
+                    </div>
+                    <div className='col-5 d-flex justify-content-center'>
+                        <input className='tw-text-center tw-border-slate-400 tw-mt-1 me-4 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Max' id='max-area' 
+                        value={maxArea} onChange={(event) => {setMaxArea(event.target.value)}} 
+                        style={{maxWidth:'110px'}} />
+                    </div>
                 </div>
-                <div className='col-2 d-flex justify-content-center'>
-                    <p>-</p>
-                </div>
-                <div className='col-5 d-flex justify-content-center'>
-                    <input className='me-4 ps-2 filter-input tw-border tw-py-2 tw-rounded-lg' placeholder='No Max' id='max-area' 
-                    value={maxArea} onChange={(event) => {setMaxArea(event.target.value)}} 
-                    style={{maxWidth:'110px'}} />
-                </div>
-                </div>
-                <div className='row'>
-                <button className='btn btn-primary' onClick={() => {
-                    updateFilterName('area', minArea && 
-                        maxArea ? 
-                            `${minArea} - ${maxArea} sqft` : 
-                            (minArea ?
-                                `${minArea} sqft+` :
-                                (maxArea ?
-                                    `Upto ${maxArea} sqft` :
-                                    'Area')
-                            )
-                    );
+                <div className='row m-0'>
+                    <button className='tw-border tw-border-solid tw-py-2 tw-pb-3 tw-font-medium tw-rounded-md 
+                            tw-text-white tw-bg-slate-900' onClick={() => {
+                        updateFilterName('area', minArea && 
+                            maxArea ? 
+                                `${minArea} - ${maxArea} sqft` : 
+                                (minArea ?
+                                    `${minArea} sqft+` :
+                                    (maxArea ?
+                                        `Upto ${maxArea} sqft` :
+                                        'Area')
+                                )
+                        );
 
-                    updateFilter('minAreaFilter', minArea);
-                    updateFilter('maxAreaFilter', maxArea);
-                    }}>
-                    Apply
-                </button>
+                        updateFilter('minAreaFilter', minArea);
+                        updateFilter('maxAreaFilter', maxArea);
+                        }}>
+                        Apply
+                    </button>
                 </div>
             </div>
         </div>
