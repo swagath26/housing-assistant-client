@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { FormContext } from "../../context/FormContext";
-import { StepContext } from "../../context/StepContext";
-import BackButton from "./UI/BackButton";
-import initMap from "../../utils/initMap";
-import geocode from "../../utils/geocode";
-import SearchBox from "../Buy/SearchBox";
+import { FormContext } from "../../../context/FormContext";
+import { StepContext } from "../../../context/StepContext";
+import BackButton from "../UI/BackButton";
+import initMap from "../../../utils/initMap";
+import geocode from "../../../utils/geocode";
+import SearchBox from "../../Buy/SearchBox";
 
 const MapInfo = () => {
 

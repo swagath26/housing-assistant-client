@@ -1,4 +1,4 @@
-import handleInputChange from '../../../utils/handleInputChange';
+import { handleInputChange } from "../../../utils/FormUtils";
 
 const SelectionInput = ({ label, field, options, required=false, formData, updateFormData, isValidated=false }) => {
     

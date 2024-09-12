@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { FormContext } from "../../context/FormContext";
-import handleNext from '../../utils/handleNext';
-import { StepContext } from "../../context/StepContext";
-import NextButton from "./UI/NextButton";
-import BackButton from "./UI/BackButton";
-import NumberInputField from "./UI/NumberInputField";
-import CheckboxInputField from "./UI/CheckboxInputField";
+import { FormContext } from "../../../context/FormContext";
+import { StepContext } from "../../../context/StepContext";
+import NextButton from "../UI/NextButton";
+import BackButton from "../UI/BackButton";
+import NumberInputField from "../UI/NumberInputField";
+import CheckboxInputField from "../UI/CheckboxInputField";
+import { handleNext } from "../../../utils/FormUtils";
 
 const PropertyInfo = () => {
     const { formData, updateFormData } = useContext(FormContext);

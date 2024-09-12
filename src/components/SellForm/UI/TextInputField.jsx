@@ -1,4 +1,4 @@
-import handleInputChange from '../../../utils/handleInputChange';
+import { handleInputChange } from "../../../utils/FormUtils";
 
 const TextInputField = ({ label, autoFocus=false, field, placeholder, formData, updateFormData, isValidated }) => {
     

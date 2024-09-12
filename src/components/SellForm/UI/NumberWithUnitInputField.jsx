@@ -1,4 +1,4 @@
-import handleInputChange from '../../../utils/handleInputChange';
+import { handleInputChange } from "../../../utils/FormUtils";
 
 const NumberWithUnitInputField = ({ label, field, unit, placeholder, required=false, formData, updateFormData, isValidated=false }) => {
     

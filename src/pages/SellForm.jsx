@@ -1,12 +1,8 @@
-import AuthContext from "../context/AuthContext";
-import './SellHome.css';
+import './SellForm.css';
 import StepIndicator from "../components/SellForm/StepIndicator";
-import { useContext } from "react";
 import FormTemplate from "../components/SellForm/FormTemplate";
 
 const SellForm = () => {
-
-    const isAuthenticated = useContext(AuthContext).isAuthenticated;
     
     return (
         
