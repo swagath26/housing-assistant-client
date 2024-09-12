@@ -2,14 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'pptelegraph';
+  src: url('/public/font/PPTelegraf/PPTelegraf-UltraLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pptelegraph';
+  src: url('/public/font/PPTelegraf/PPTelegraf-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pptelegraph';
+  src: url('/public/font/PPTelegraf/PPTelegraf-UltraBold.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --fs-xxl: clamp(3.125rem, 1rem + 3.255vw, 6rem);
+  --fs-xl: clamp(1.75rem, 3.22vw + 0.4725rem, 6.5625rem);
+  --fs-900: 3.5rem;
+  --fs-l: clamp(1.25rem, 2.3vw + 0.3375rem, 4.6875rem);
+  --fs-700: 2.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.5rem;
+  --fs-m: clamp(0.75rem, 1.38vw + 0.2025rem, 2.8125rem);
+  --fs-400: 1rem;
+  --fs-s: clamp(0.5rem, 0.92vw + 0.135rem, 1.875rem);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --fs-xxl: clamp(1.125rem, 1.5rem + 3.5vw, 2.5rem);
+    --fs-xl: clamp(2.5rem, 12.83vw, 3.5rem);
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  height: 100dvh;
+  font-family: 'pptelegraph', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: 'pptelegraph', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

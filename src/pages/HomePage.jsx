@@ -7,8 +7,8 @@ const Homepage = () => {
   return (
     <>
       <HeroBanner />
-      <FeatureSection />
-      <LatestListings />
+      {/* <FeatureSection /> */}
+      {/* <LatestListings /> */}
     </>
   );
 };

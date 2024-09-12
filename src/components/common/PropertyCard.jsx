@@ -1,12 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import './PropertyCard.css'
+import { INRFormat } from '../../utils/CurrencyFormat';
 
 const PropertyCard = ({ property }) => {
-    const IndianRupeeFormatter = new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR'
-    });
   
     return (
         <div className='card property-card' style={{width:'350px'}}>
@@ -17,11 +14,11 @@ const PropertyCard = ({ property }) => {
                     {property.home_type}
                   </div>
                 </div>
-                {/* <div className='col-2' >
+                <div className='col-2' >
                   <i className='favourites-icon' id={`fav_${property.id}`} style={{display:'inline-block'}}>
                     <img src="/static/img/fav-logo.png" alt='fav-icon'/>
                   </i>
-                </div> */}
+                </div>
               </div>
               <div id={`property_${property.id}`} className="carousel slide" style={{zIndex:'0'}}>
                 <div className="carousel-inner">
@@ -45,9 +42,9 @@ const PropertyCard = ({ property }) => {
                 </div>
               </div>
             </div>
-        
+
           <div className="card-body p-2" style={{height:'130px'}}>
-            <h5 className='card-title fw-bold'>{IndianRupeeFormatter.format(property.price)}</h5>
+            <h5 className='card-title fw-bold'>{INRFormat(property.price)}</h5>
             <div className='card-text'>
               <p style={{fontSize:'16px', margin:'0', textOverflow:'ellipsis', overflow:'hidden', textWrap:'nowrap'}}>
                 <b>{property.bedrooms} </b>bds | <b>{property.bathrooms}</b> ba <b>{property.balcony && ' | Balcony'}</b> | <b>{property.area || '--'}</b> sqft

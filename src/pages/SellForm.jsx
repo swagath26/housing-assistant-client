@@ -6,7 +6,7 @@ const SellForm = () => {
     
     return (
         
-        <div className='tw-flex tw-justify-center tw-mt-[10vh] lg:tw-min-h-[90vh] lg:tw-mt-[12.5vh]'>
+        <div className='tw-flex tw-justify-center lg:tw-min-h-[90vh]'>
             
             <div className='tw-flex tw-flex-col tw-w-full
                 lg:tw-flex-row lg:tw-px-8 lg:tw-py-8 lg:tw-gap-8 lg:tw-w-4/5 lg:tw-shadow-[0px_0px_5px_2px_rgba(0,0,0,0.1)]

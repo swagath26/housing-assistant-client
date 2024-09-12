@@ -396,7 +396,7 @@ const Buy = () => {
   }, [isMapToggled]);
 
   return (
-    <div className='tw-h-screen tw-w-screen tw-pt-[10vh] tw-flex tw-flex-col tw-items-center lg:tw-items-stretch lg:tw-flex-row'>
+    <div className='tw-h-full tw-relative tw-w-full tw-flex tw-flex-col tw-items-center lg:tw-items-stretch lg:tw-flex-row'>
 
       <div className='tw-flex tw-flex-col tw-grow tw-w-full lg:tw-w-auto'>
         
@@ -447,9 +447,9 @@ const Buy = () => {
 
       </div>
 
-      <div className={`property-section px-2 tw-h-full tw-w-screen ${isMapToggled ? 'tw-hidden' : ''} lg:tw-w-1/2 lg:tw-flex tw-flex-col`} style={{background: 'white', position: 'relative', zIndex: 2}}>
+      <div className={`property-section px-2 tw-h-full tw-w-screen tw-bg-zinc-100 ${isMapToggled ? 'tw-hidden' : ''} lg:tw-w-1/2 lg:tw-flex tw-flex-col`} style={{position: 'relative', zIndex: 2}}>
         <ListSection />
-        <FooterComponent />
+        {/* <FooterComponent /> */}
       </div>
 
     </div>
