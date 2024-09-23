@@ -254,11 +254,11 @@ const Buy = () => {
 
   const FilterSection = () => {
     return (
-      <div className={`tw-flex-wrap tw-justify-evenly tw-gap-4 tw-py-2
+      <div className={`tw-flex-wrap tw-justify-evenly tw-gap-4 tw-pt-1 tw-pb-3
          ${isFilterToggled ? 'tw-hidden' : 'tw-flex'} lg:tw-flex`}>
 
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-medium hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.price}
           </button>
@@ -272,7 +272,7 @@ const Buy = () => {
           </div>
         </div>
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-medium hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.beds} & {filterNames.baths}
           </button>
@@ -289,7 +289,7 @@ const Buy = () => {
         </div>
         
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-medium hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.area}
           </button>
@@ -303,7 +303,7 @@ const Buy = () => {
             </div>
         </div>
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-medium hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.homeType}
           </button>
@@ -354,7 +354,7 @@ const Buy = () => {
             <div className='list-loaded'>
               <div className='row p-0 m-0'>
                 {properties.map((property) => (
-                  <div key={property.id} className='col-12 col-md-6 col-lg-12 col-xl-6 d-flex justify-content-center p-1'
+                  <div key={property.id} className='col-12 col-md-6 col-lg-12 col-xl-6 d-flex justify-content-center p-2'
                     onMouseEnter={() => {
                       markers[property.id]?.setIcon(icon_hov)}
                     }

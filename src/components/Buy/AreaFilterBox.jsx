@@ -18,10 +18,10 @@ const AreaFilterBox = ({minAreaFilter, maxAreaFilter, updateFilter, updateFilter
             <div className='card-body'>
                 <div className='row mb-1'>
                 <div className='col-6 d-flex justify-content-center'>
-                    <b>Minimum</b>
+                    Minimum
                 </div>
                 <div className='col-6 d-flex justify-content-center'>
-                    <b>Maximum</b>
+                    Maximum
                 </div>
                 </div>
                 <div className='row mb-4'>

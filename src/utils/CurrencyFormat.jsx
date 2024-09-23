@@ -5,7 +5,7 @@ const IndianRupeeFormatter = new Intl.NumberFormat('en-IN', {
 });
 
 export const INRFormat = (value) => {
-    return IndianRupeeFormatter.format(value);
+    return IndianRupeeFormatter.format(value).replace('₹', '₹ ');
 };
 
 export const INRPriceFormat = (value) => {

@@ -29,7 +29,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed0" checked={beds.length === 0} onChange={(event) => {
                   setBeds(event.target.checked ? [] : []);
                 }}/>
-              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium tw-box-border  ${beds.length === 0 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-w-full tw-font-medium tw-box-border  ${beds.length === 0 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed0">Any</label>
             </div>
 
@@ -37,7 +37,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed1" checked={beds.includes(1)} onChange={(event) => {
                 setBeds(event.target.checked ? [...beds, 1] : beds.filter((n) => n !== 1));
               }} />
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${beds.includes(1) ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${beds.includes(1) ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed1">1</label>
             </div>
 
@@ -45,7 +45,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed2" checked={beds.includes(2)} onChange={(event) => {
                 setBeds(event.target.checked ? [...beds, 2] : beds.filter((n) => n !== 2));
               }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${beds.includes(2) ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${beds.includes(2) ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed2">2</label>
             </div>
 
@@ -53,7 +53,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed3" checked={beds.includes(3)} onChange={(event) => {
                 setBeds(event.target.checked ? [...beds, 3] : beds.filter((n) => n !== 3));
               }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${beds.includes(3) ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${beds.includes(3) ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed3">3</label>
             </div>
 
@@ -61,7 +61,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed4" checked={beds.includes(4)} onChange={(event) => {
                 setBeds(event.target.checked ? [...beds, 4] : beds.filter((n) => n !== 4));
               }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${beds.includes(4) ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${beds.includes(4) ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed4">4</label>
             </div>
 
@@ -69,7 +69,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="checkbox" className="btn-check" id="bed5" checked={beds.includes(5)} onChange={(event) => {
                 setBeds(event.target.checked ? [...beds, 5] : beds.filter((n) => n !== 5));
               }}/>
-              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${beds.includes(5) ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${beds.includes(5) ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed5">5</label>
             </div>
           </div>
@@ -79,7 +79,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" name='bedrooms' id="bed0+" checked={minBeds===''} onChange={(event) => {
                   setMinBeds(event.target.checked ? '' : '')
                 }}/>
-              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium tw-box-border  ${minBeds==='' ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-w-full tw-font-medium tw-box-border  ${minBeds==='' ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed0+">Any</label>
             </div>
 
@@ -87,40 +87,40 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" name='bedrooms' id="bed1+" checked={minBeds===1} onChange={(event) => {
                   setMinBeds(event.target.checked ? 1 : '')
                 }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBeds===1 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBeds===1 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed1+">1+</label>
             </div>
             <div className='col p-0 m-0'>
               <input type="radio" className="btn-check" name='bedrooms' id="bed2+" checked={minBeds===2} onChange={(event) => {
                   setMinBeds(event.target.checked ? 2 : '')
                 }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBeds===2 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBeds===2 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed2+">2+</label>
             </div>
             <div className='col p-0 m-0'>
               <input type="radio" className="btn-check" name='bedrooms' id="bed3+" checked={minBeds===3} onChange={(event) => {
                   setMinBeds(event.target.checked ? 3 : '')
                 }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBeds===3 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBeds===3 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed3+">3+</label>
             </div>
             <div className='col p-0 m-0'>
               <input type="radio" className="btn-check" name='bedrooms' id="bed4+" checked={minBeds===4} onChange={(event) => {
                   setMinBeds(event.target.checked ? 4 : '')
                 }}/>
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBeds===4 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBeds===4 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed4+">4+</label>
             </div>
             <div className='col p-0 m-0'>
               <input type="radio" className="btn-check" name='bedrooms' id="bed5+" checked={minBeds===5} onChange={(event) => {
                   setMinBeds(event.target.checked ? 5 : '')
                 }}/>
-              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBeds===5 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBeds===5 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bed5+">5+</label>
             </div>
           </div>
 
-          <div className='row my-2 m-0 ps-2'>
+          <div className='row mt-3 m-0 ps-2'>
             <div className='form-check'>
               <input className='form-check-input' type='checkbox' id='useexactmatch' 
                 checked={isExactMatchBeds} 
@@ -146,7 +146,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath0+" name='bathroms' checked={minBaths===''} 
                 onChange={(event) => {setMinBaths(event.target.checked ? '' : '')}} 
                 />
-              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${minBaths==='' ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-l-md tw-border tw-border-solid tw-py-2 tw-w-full tw-font-medium  ${minBaths==='' ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath0+">Any</label>
             </div>
 
@@ -154,7 +154,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath1+" name='bathroms' checked={minBaths===1} 
                 onChange={(event) => {setMinBaths(event.target.checked ? 1 : '')}} 
                 />
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${minBaths===1 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${minBaths===1 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath1+">1+</label>
             </div>
 
@@ -162,7 +162,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath2+" name='bathroms' checked={minBaths===2} 
                 onChange={(event) => {setMinBaths(event.target.checked ? 2 : '')}} 
                 />
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium ${minBaths===2 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full ${minBaths===2 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath2+">2+</label>
             </div>
 
@@ -170,7 +170,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath3+" name='bathroms' checked={minBaths===3} 
                 onChange={(event) => {setMinBaths(event.target.checked ? 3 : '')}} 
                 />
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${minBaths===3 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${minBaths===3 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath3+">3+</label>
             </div>
 
@@ -178,7 +178,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath4+" name='bathroms' checked={minBaths===4} 
                 onChange={(event) => {setMinBaths(event.target.checked ? 4 : '')}} 
                 />
-              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${minBaths===4 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${minBaths===4 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath4+">4+</label>
             </div>
 
@@ -186,7 +186,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
               <input type="radio" className="btn-check" id="bath5+" name='bathroms' checked={minBaths===5} 
                 onChange={(event) => {setMinBaths(event.target.checked ? 5 : '')}} 
                 />
-              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-pb-3 tw-w-full tw-font-medium  ${minBaths===5 ? 'tw-text-white tw-bg-slate-900' : ''}
+              <label className={`tw-rounded-r-md tw-border-r tw-border-t tw-border-b tw-border-solid tw-py-2 tw-w-full  ${minBaths===5 ? 'tw-text-white tw-bg-slate-900' : ''}
                         hover:tw-text-white hover:tw-bg-slate-900 active:tw-bg-slate-700 tw-text-center sm:tw-px-4 tw-border-slate-400 tw-cursor-pointer`} htmlFor="bath5+">5+</label>
             </div>
           </div>
@@ -194,7 +194,7 @@ const BedsBox = ({bedsFilter, minBedsFilter, isExactMatchBedsRef, updateFilter, 
       </div>
 
       <div className='row tw-m-3'>
-            <button className='tw-border tw-border-solid tw-py-2 tw-pb-3 tw-font-medium tw-rounded-md 
+            <button className='tw-border tw-border-solid tw-py-2 tw-font-medium tw-rounded-md 
                         tw-text-white tw-bg-slate-900' data-bs-dismiss='dropdown' data-bs-target='#baths-dropdown' onClick={() => {
               if(minBeds !== '')
                 updateFilterName('beds', `${minBeds}+ bds`)

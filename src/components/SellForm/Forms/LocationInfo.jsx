@@ -38,7 +38,7 @@ const LocationInfo = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-grow tw-justify-start xl:tw-pl-16 tw-py-4 tw-gap-4 tw-min-h-80">
+            <div className="tw-flex tw-flex-col tw-grow tw-justify-start xl:tw-pl-16 tw-py-4 tw-gap-4 tw-h-full">
                 <TextInputField 
                     autoFocus={true}
                     label='Street Address'
