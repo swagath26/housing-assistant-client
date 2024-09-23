@@ -21,18 +21,15 @@ const Header = () => {
   }
 
   return (
-    <header className="header tw-h-[10vh] lg:tw-h-[15vh] tw-px-8 py-0 pt-1 w-100 tw-content-center">
+    <header className="header tw-h-[10dvh] lg:tw-h-[15dvh] py-0 w-100 tw-content-center">
 
-    <nav className="navbar navbar-expand-md py-0">
-        <div className='container-fluid'>
+    <nav className="navbar navbar-expand-md py-0 tw-flex tw-px-6 tw-gap-4">
+        <div className='tw-flex tw-grow tw-justify-between tw-items-center'>
           <Link to="/" className="navbar-brand">
             <div>
               <img className='lg:tw-w-[65px] tw-w-[50px]' src="/static/img/logo2.png" alt="Housing Logo" width="65" />
             </div>
           </Link>
-          <button className="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <FontAwesomeIcon icon={faBars} />
-          </button>
 
           <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby='offcanvasNavbarLabel'>
             <div className='offcanvas-header'>
@@ -49,8 +46,10 @@ const Header = () => {
           </div>
 
           {!isAuthenticated ? 
-          <div className="nav-item px-2">
-            <Link to="/accounts" className='nav-link' data-bs-toggle='modal' data-bs-target='#accounts'>Signin</Link>
+          <div className="nav-item">
+            <Link to="/accounts" 
+              className='nav-link tw-border tw-border-solid tw-border-slate-300 tw-rounded-lg tw-px-6 tw-cursor-pointer hover:tw-text-white hover:tw-bg-slate-900 tw-py-2' 
+              data-bs-toggle='modal' data-bs-target='#accounts'>Signin</Link>
           </div>
           : 
           <div className="nav-item px-2 dropdown">
@@ -66,6 +65,10 @@ const Header = () => {
           }
 
         </div>
+
+        <button className="navbar-toggler tw-py-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <FontAwesomeIcon icon={faBars} />
+        </button>
       </nav>
 
       <div className="modal fade" id="accounts">

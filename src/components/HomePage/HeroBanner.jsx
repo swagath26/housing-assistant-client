@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import frame from '../../assets/img/Frame.jpg';
+import frame from '../../assets/img/Frame_1.jpg';
 
 const HeroBanner = () => {
     const navigate = useNavigate();

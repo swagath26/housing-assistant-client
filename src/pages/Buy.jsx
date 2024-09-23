@@ -361,7 +361,7 @@ const Buy = () => {
                     onMouseLeave={() => {
                       markers[property.id]?.setIcon(icon_std)}
                   }>
-                    <PropertyCard property={property} />
+                    <PropertyCard property={property} setRefetch={setRefetch} />
                   </div>
                 ))}
               </div>

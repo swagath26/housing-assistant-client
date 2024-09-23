@@ -21,7 +21,7 @@ const Layout = () => {
     <div className='tw-h-screen tw-flex tw-flex-col tw-bg-zinc-100'>
       <Router>
         <Header />
-        <main className='tw-h-[90vh] lg:tw-h-[85vh] tw-w-full tw-relative'>
+        <main className='tw-h-[90dvh] lg:tw-h-[85dvh] tw-w-full tw-relative'>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />

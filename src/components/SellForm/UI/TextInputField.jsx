@@ -10,7 +10,7 @@ const TextInputField = ({ label, autoFocus=false, field, placeholder, formData, 
             >{label}</label>
             <input
                 autoFocus={autoFocus}
-                className={`tw-px-4 tw-pt-2 tw-pb-3 tw-border tw-border-solid tw-rounded-lg 
+                className={`tw-px-4 tw-py-3 tw-border tw-border-solid tw-rounded-lg 
                     ${isValidated && !formData[field] ? 
                         `tw-border-red-600 focus-visible:tw-outline-red-600` 
                         : `tw-border-neutral-300 focus-visible:tw-outline-blue-800`}
