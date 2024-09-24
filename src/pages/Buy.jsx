@@ -258,7 +258,7 @@ const Buy = () => {
          ${isFilterToggled ? 'tw-hidden' : 'tw-flex'} lg:tw-flex`}>
 
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-text-[10px] xl:tw-text-sm 2xl:tw-text-md tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.price}
           </button>
@@ -272,7 +272,7 @@ const Buy = () => {
           </div>
         </div>
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-text-[10px] xl:tw-text-sm 2xl:tw-text-md tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.beds} & {filterNames.baths}
           </button>
@@ -289,7 +289,7 @@ const Buy = () => {
         </div>
         
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-text-[10px] xl:tw-text-sm 2xl:tw-text-md tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.area}
           </button>
@@ -303,7 +303,7 @@ const Buy = () => {
             </div>
         </div>
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
+          <button className='tw-grow tw-text-[10px] xl:tw-text-sm 2xl:tw-text-md tw-px-3 tw-rounded-md dropdown-toggle tw-font-normal hover:tw-bg-slate-100 active:tw-bg-slate-200 hover:tw-border-slate-400 
             tw-border tw-border-solid tw-border-slate-400 tw-py-2' data-bs-toggle='dropdown' data-bs-auto-close="outside" aria-expanded='false'>
             {filterNames.homeType}
           </button>
@@ -316,7 +316,7 @@ const Buy = () => {
             </div>
         </div>
         <div className='d-flex justify-content-center tw-grow'>
-          <button className='tw-grow btn text-nowrap' onClick={clearFilters}>
+          <button className='tw-grow tw-text-[10px] xl:tw-text-sm 2xl:tw-text-md' onClick={clearFilters}>
             Clear
           </button>
         </div>

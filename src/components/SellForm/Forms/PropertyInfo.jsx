@@ -17,7 +17,7 @@ const PropertyInfo = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-grow tw-gap-12 xl:tw-pl-16 tw-py-4 tw-min-h-80">
+            <div className="tw-flex tw-flex-col tw-grow tw-gap-12 xl:tw-pl-16 xl:tw-py-4 tw-h-full">
 
                 <div className="tw-flex tw-gap-x-16 tw-gap-y-8 tw-flex-wrap">
                     <NumberInputField 
@@ -37,7 +37,7 @@ const PropertyInfo = () => {
 
                 <div className="tw-flex tw-flex-col tw-gap-4">
                     <p className="tw-font-medium tw-text-slate-700">Select the available room features</p>
-                    <div className="tw-flex tw-gap-4 xl:tw-gap-8 tw-flex-wrap">
+                    <div className="tw-flex tw-gap-4 xl:tw-gap-8">
                         <CheckboxInputField 
                             label="Balcony"
                             field="balcony"

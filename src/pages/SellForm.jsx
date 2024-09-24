@@ -6,11 +6,11 @@ const SellForm = () => {
     
     return (
         
-        <div className='tw-flex tw-justify-center lg:tw-h-[85dvh]'>
+        <div className='tw-flex tw-justify-center'>
             
             <div className='tw-flex tw-flex-col tw-w-full
                 lg:tw-flex-row lg:tw-px-8 lg:tw-py-8 lg:tw-gap-8 lg:tw-w-4/5 lg:tw-shadow-[0px_0px_5px_2px_rgba(0,0,0,0.1)]
-                tw-min-h-[90dvh] lg:tw-min-h-[80dvh] lg:tw-h-[80dvh] 2xl:tw-w-2/3 xl:tw-w-3/4'>
+                tw-min-h-[90dvh] lg:tw-min-h-[80dvh] lg:tw-mb-[5dvh] 2xl:tw-w-2/3 xl:tw-w-3/4'>
                 
                 <div className='tw-hidden lg:tw-flex tw-items-center'>
                     <StepIndicator />

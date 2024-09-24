@@ -57,7 +57,7 @@ const Pricing = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-justify-center tw-grow tw-pb-4 xl:tw-pl-16 tw-gap-8 tw-min-h-80">
+            <div className="tw-flex tw-flex-col tw-justify-center tw-grow tw-pb-4 xl:tw-pl-8 tw-gap-8 tw-h-full">
 
                 <SelectionInput 
                     label="Select the type of property"
@@ -99,7 +99,7 @@ const Pricing = () => {
                             type="button" 
                             className="tw-font-medium tw-px-4 lg:tw-mx-6 tw-text-slate-900" 
                         >
-                            {/* Preview */}
+                            Preview
                         </button>
                     ) : ''
                     }

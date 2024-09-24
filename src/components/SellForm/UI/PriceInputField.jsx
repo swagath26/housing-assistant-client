@@ -3,7 +3,7 @@ import { INRPriceFormat } from '../../../utils/CurrencyFormat';
 
 const NumberWithUnitInputField = ({ label, field, unit, placeholder, required=false, formData, updateFormData, isValidated=false }) => {
 
-    const [formattedPrice, setFormattedPrice] = useState('');
+    const [formattedPrice, setFormattedPrice] = useState(INRPriceFormat(formData[field] || ''));
 
     const handlePriceInputChange = (event) => {
         const {name, value } = event.target;
