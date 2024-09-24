@@ -18,7 +18,7 @@ import { StepProvider } from './context/StepContext';
 const Layout = () => {
 
   return (
-    <div className='tw-h-fit tw-flex tw-flex-col tw-bg-zinc-100'>
+    <div className='tw-h-fit tw-w-full tw-flex tw-flex-col tw-bg-zinc-100'>
       <Router>
         <Header />
         <main className='tw-h-min-[90svh] lg:tw-min-h-[85svh] tw-h-fit tw-w-full tw-relative'>

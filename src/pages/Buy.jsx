@@ -404,7 +404,7 @@ const Buy = () => {
           <FilterSection />
         </div>
 
-        <div className="map-section d-flex px-0 flex-column h-100" style={{position: 'relative', zIndex: 1}}>
+        <div className="map-section d-flex px-0 flex-column h-100" style={{position: 'relative', zIndex: 1, overflow: 'hidden'}}>
           <div className='row search-row ms-5 d-flex p-2 align-items-center' style={{position: 'absolute', zIndex: 1000}}>
             <div className='p-0 py-2'>
               <SearchBox
@@ -423,7 +423,7 @@ const Buy = () => {
 
       </div>
 
-      <div className='tw-fixed tw-z-10 tw-bottom-2 tw-flex tw-gap-4
+      <div className='tw-fixed tw-z-10 tw-bottom-0 tw-left-0 tw-flex tw-gap-4
         tw-w-full lg:tw-hidden tw-justify-center tw-pb-4 tw-pt-3'>
         <button
           className='tw-bg-slate-900 tw-w-32 tw-py-3 tw-rounded-lg

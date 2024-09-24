@@ -22,11 +22,11 @@ const PropertyCard = ({ property}) => {
               </div>
             </div>
             <div id={`property_${property.id}`} className="carousel slide" style={{zIndex:'0'}}>
-              <div className="carousel-inner">
+              <div className="carousel-inner tw-h-40 tw-bg-neutral-300">
                 {property.images && 
                 property.images.map((image, index) => (
                 <div className={index===0 ? 'carousel-item active' : 'carousel-item'} key={index}>
-                  <img className='w-100 object-fit-cover card-img tw-rounded-none tw-h-40' 
+                  <img className='w-100 object-fit-cover card-img tw-rounded-none tw-h-full' 
                   src={image.image}
                   alt={`Property Image ${index+1}`} />
                 </div>

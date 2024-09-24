@@ -124,65 +124,62 @@ const SigninForm = () => {
         <div className="card">
             <form className="p-2 needs-validation" id="login-form" noValidate>
 
-                <div className="row p-2">
-                    <div className="col-auto d-flex align-items-center">
-                        <label htmlFor="username" className="col-form-label">
-                            <FaUser className="icon" />
-                        </label>
-                    </div>
-                    <div className="col-10 row">
-                        <div className="col-8 d-flex align-items-center">
-                            <input type="text" className="form-control my-1" placeholder="Enter your username" id="username" value={username} onChange={(event) => setUsername(event.target.value)} required/>
-                        </div>
-                        <div className="col-4 d-flex align-items-center">
-                        <div className="invalid-feedback m-0" id="invalid-username">
+                <div className="tw-p-2 tw-flex tw-gap-6">
+                    <label htmlFor="username" className="col-form-label tw-mt-2">
+                        <FaUser className="icon" />
+                    </label>
+                    <div className="tw-grow tw-flex max-md:tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-1">
+                        <input type="text" className="form-control my-1 tw-grow" placeholder="Enter your username" id="username" value={username} onChange={(event) => setUsername(event.target.value)} required/>
+                        
+                        <div className="tw-w-40 tw-h-full">
+                            <div className="invalid-feedback m-0 tw-w-full" id="invalid-username">
                                 Enter your username!
                             </div>
-                            <div className="invalid-feedback m-0" id="wrong-username">
+                            <div className="invalid-feedback m-0 tw-w-full" id="wrong-username">
                                 Username doesnot exist!
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="row p-2">
-                    <div className="col-auto d-flex align-items-center">
-                        <label htmlFor="password" className="col-form-label">
-                            <FaLock className="icon" />
-                        </label>
-                    </div>
-                    <div className="col-10 row">
-                        <div className="col-8 d-flex align-items-center">
-                            <input type="password" className="form-control my-1" placeholder="Enter your password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} aria-describedby="passwordHelp" required/>
-                        </div>
-                        <div className="col-4 d-flex align-items-center">
-                        <div className="invalid-feedback m-0" id="invalid-password">
+                <div className="tw-p-2 tw-flex tw-gap-6">
+                    <label htmlFor="password" className="col-form-label tw-mt-2">
+                        <FaLock className="icon" />
+                    </label>
+                    <div className="tw-grow tw-flex max-md:tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-1">
+                        <input type="password" className="form-control my-1" placeholder="Enter your password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} aria-describedby="passwordHelp" required/>
+                        
+                        <div className="tw-w-40 tw-h-full">
+                            <div className="invalid-feedback m-0 tw-w-full" id="invalid-password">
                                 Enter your password
                             </div>
-                            <div className="invalid-feedback m-0" id="wrong-password">
+                            <div className="invalid-feedback m-0 tw-w-full" id="wrong-password">
                                 Password is incorrect!
                             </div>
                         </div>
                     </div>
-                    <div id="passwordHelp" className="form-text">Never share your passwords with anyone</div>
                 </div>
 
-                <div className="row p-2">
+                <div id="passwordHelp" className="form-text tw-px-2">Never share your passwords with anyone</div>
+
+                <div className="tw-p-2 tw-flex tw-flex-wrap tw-gap-4 tw-my-3">
                     <div className="col-auto d-flex align-items-center">
                         <input type="checkbox" className="form-check-input m-0" id="rememberme" value={rememberme} onChange={(event) => {setRememberme(event.target.checked)}} />
                         <label htmlFor="rememberme" className="form-check-label ms-2">Remember me</label>
                     </div>
                     <div className="col-auto ms-3 d-flex align-items-center">
-                    <button type="submit" className="btn btn-primary" onClick={(event) => {
-                        event.preventDefault();
-                        if(isFormValidated) {
-                            handleSignin();
-                        }
-                        if (!formValidate) {
-                            if(username && password ) handleSignin();
-                            setFormValidate(true);
-                        }
-                    }}>Sign in</button>
+                        <button type="submit" className="tw-bg-slate-800 tw-font-medium tw-text-white tw-py-2 tw-px-5 tw-rounded-lg" 
+                            onClick={(event) => {
+                                event.preventDefault();
+                                if(isFormValidated) {
+                                    handleSignin();
+                                }
+                                if (!formValidate) {
+                                    if(username && password ) handleSignin();
+                                    setFormValidate(true);
+                                }
+                            }}>Sign in
+                        </button>
                     </div>
                 </div>
 

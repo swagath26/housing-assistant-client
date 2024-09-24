@@ -279,13 +279,13 @@ const RegisterForm = () => {
                     </div>
                 </div>
 
-                <div className="row p-2">
+                <div className="tw-p-2 tw-flex tw-flex-wrap tw-gap-4 tw-my-3">
                     <div className="col-auto d-flex align-items-center">
                         <input type="checkbox" className="form-check-input m-0" id="rememberme" value={rememberme} onChange={(event) => {setRememberme(event.target.checked)}} />
                         <label htmlFor="rememberme" className="form-check-label ms-2">Remember me</label>
                     </div>
                     <div className="col-auto ms-3 d-flex align-items-center">
-                    <button type="submit" className="btn btn-primary" onClick={(event) => {
+                    <button type="submit" className="tw-bg-slate-800 tw-font-medium tw-text-white tw-py-2 tw-px-5 tw-rounded-lg" onClick={(event) => {
                         event.preventDefault();
                         if (!formValidate) {
                             handleRegister();

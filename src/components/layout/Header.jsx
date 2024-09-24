@@ -21,7 +21,7 @@ const Header = () => {
   }
 
   return (
-    <header className="header tw-h-[10dvh] lg:tw-h-[15dvh] py-0 w-100 tw-content-center">
+    <header className="header tw-h-[10svh] lg:tw-h-[15svh] py-0 tw-w-full tw-content-center">
 
     <nav className="navbar navbar-expand-md py-0 tw-flex tw-px-[3vw] tw-gap-4">
         <div className='tw-flex tw-grow tw-justify-between tw-items-center'>
@@ -31,18 +31,18 @@ const Header = () => {
             </div>
           </Link>
 
-          <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby='offcanvasNavbarLabel'>
+          <div className="offcanvas tw-h-full tw-w-full offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby='offcanvasNavbarLabel'>
             <div className='offcanvas-header'>
               <button type='button' className='btn-close' data-bs-dismiss="offcanvas" aria-label='Close'></button>
             </div>
             <div className='offcanvas-body tw-justify-center'>
-              <ul className='navbar-nav tw-flex tw-gap-8'>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/home" className="nav-link">Home</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/buy" className="nav-link">Buy</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas">
+              <ul className='navbar-nav tw-flex tw-gap-8 max-md:tw-p-8 max-md:tw-text-2xl'>
+                <li className="nav-item tw-text-center p-2 active:max-md:tw-outline-1 max-md:tw-outline-0 max-md:tw-outline max-md:tw-outline-neutral-500 max-md:tw-rounded-lg" data-bs-dismiss="offcanvas"><Link to="/home" className="nav-link">Home</Link></li>
+                <li className="nav-item tw-text-center p-2 active:max-md:tw-outline-1 max-md:tw-outline-0 max-md:tw-outline max-md:tw-outline-neutral-500 max-md:tw-rounded-lg" data-bs-dismiss="offcanvas"><Link to="/buy" className="nav-link">Buy</Link></li>
+                <li className="nav-item tw-text-center p-2 active:max-md:tw-outline-1 max-md:tw-outline-0 max-md:tw-outline max-md:tw-outline-neutral-500 max-md:tw-rounded-lg" data-bs-dismiss="offcanvas">
                   <div data-bs-toggle={isAuthenticated ? '' : 'modal'} data-bs-target='#accounts'><Link to="/sell_home" className="nav-link">Sell</Link></div>
                 </li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link className="nav-link">About</Link></li>
+                <li className="nav-item tw-text-center p-2 active:max-md:tw-outline-1 max-md:tw-outline-0 max-md:tw-outline max-md:tw-outline-neutral-500 max-md:tw-rounded-lg" data-bs-dismiss="offcanvas"><Link className="nav-link">About</Link></li>
               </ul>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Header = () => {
             <button className='btn text-nowrap nav-link dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
               Accounts
             </button>
-            <ul className="dropdown-menu" aria-labelledby="appsDropdown">
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="appsDropdown">
               {/* <li><Link className="dropdown-item">Profile</Link></li> */}
               {/* <li><Link to="/saved_properties" className="dropdown-item">Saved Properties</Link></li> */}
               <li><Link className="dropdown-item" onClick={handleSignout}>Sign Out</Link></li>

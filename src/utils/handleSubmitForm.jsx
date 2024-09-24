@@ -33,6 +33,7 @@ const handleSubmitForm = async (formData) => {
         let errorMessage = 'An error occured..';
         if (error.response) {
             console.log(error.response.data);
+            console.log(error);
             Object.entries(error.response.data).forEach(([key, value]) => {
                 console.log(`\n${key}: ${value}`);
                 if (key === 'detail') errorMessage += `\n${value}`;
