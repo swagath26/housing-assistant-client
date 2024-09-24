@@ -326,7 +326,7 @@ const Buy = () => {
 
   const ListSection = () => {
     return (
-      <div className={`list-section tw-h-fit tw-min-h-full ${isLoading? 'loading' : 'loaded'}`} id="list-section">
+      <div className={`list-section tw-h-fit ${isLoading? 'loading' : 'loaded'}`} id="list-section">
           <div className='row tw-px-2 tw-pb-2 m-0 list-section-header'>
             <div className='col-6'>
               <div>

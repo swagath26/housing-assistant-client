@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import frame from '../../assets/img/Frame_1.jpg';
 
@@ -41,10 +41,13 @@ const HeroBanner = () => {
               <div className="tw-self-stretch tw-text-center lg:tw-text-start tw-text-black/60 tw-text-sm lg:tw-text-lg tw-font-normal">
                 Connecting you with homes that inspire, comfort, and elevate your living experience.
               </div>
-              <div className="tw-self-stretch tw-px-[30px] tw-py-2 lg:tw-py-5 tw-justify-center lg:tw-justify-end tw-items-center tw-gap-2.5 tw-inline-flex">
-                <div className="tw-px-4 lg:tw-px-7 tw-py-3 tw-bg-neutral-800 tw-rounded-[23px] tw-justify-center tw-items-center tw-gap-2.5 tw-flex">
-                  <div className="tw-text-white tw-text-md lg:tw-text-xl tw-font-semibold">Get Started</div>
-                </div>
+              <div className="tw-self-stretch tw-py-2 lg:tw-py-5 tw-justify-evenly tw-items-center tw-gap-2.5 tw-inline-flex">
+                <Link to='/buy' className="tw-px-4 lg:tw-px-7 tw-py-3 tw-bg-neutral-800 tw-rounded-[23px] tw-justify-center tw-items-center tw-gap-2.5 tw-flex">
+                  <div className="tw-text-white tw-text-md lg:tw-text-xl tw-font-semibold">Buy Homes</div>
+                </Link>
+                <Link to='/sell_home' className="tw-px-4 lg:tw-px-7 tw-py-3 tw-bg-neutral-800 tw-rounded-[23px] tw-justify-center tw-items-center tw-gap-2.5 tw-flex">
+                  <div className="tw-text-white tw-text-md lg:tw-text-xl tw-font-semibold">Sell Homes</div>
+                </Link>
               </div>
             </div>
           </div>
