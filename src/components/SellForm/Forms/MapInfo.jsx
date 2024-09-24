@@ -63,7 +63,7 @@ const MapInfo = () => {
                 </div>
             </div>
 
-            <div ref={mapContainerRef} id="map" className="tw-grow tw-min-h-80"></div>
+            <div ref={mapContainerRef} id="map" className="tw-grow tw-h-full"></div>
 
             <div className="tw-flex tw-justify-between tw-items-center tw-py-4">
                 <BackButton prevStep={prevStep} />

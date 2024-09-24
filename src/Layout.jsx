@@ -18,10 +18,10 @@ import { StepProvider } from './context/StepContext';
 const Layout = () => {
 
   return (
-    <div className='tw-h-screen tw-flex tw-flex-col tw-bg-zinc-100'>
+    <div className='tw-h-fit tw-flex tw-flex-col tw-bg-zinc-100'>
       <Router>
         <Header />
-        <main className='tw-h-[90dvh] lg:tw-h-[85dvh] tw-w-full tw-relative'>
+        <main className='tw-h-min-[90svh] lg:tw-min-h-[85svh] tw-h-fit tw-w-full tw-relative'>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
@@ -42,7 +42,6 @@ const Layout = () => {
             <Route path='/edit-property/:property_id' element={<EditProperty />} /> */}
           </Routes>
         </main>
-        {/* <Footer /> */}
       </Router>
     </div>
   );

@@ -18,7 +18,7 @@ const HeroBanner = () => {
     }, []);
 
     return (
-      <div className="tw-w-full tw-h-full tw-flex-col tw-justify-start tw-items-center tw-inline-flex">
+      <div className="tw-w-full tw-h-[90dvh] lg:tw-h-[85dvh] tw-flex-col tw-justify-start tw-items-center tw-inline-flex">
         <div className="tw-self-stretch tw-h-full tw-grow tw-shrink tw-pt-6 tw-pb-6 tw-px-4 lg:tw-px-12 lg:tw-pt-8 lg:tw-pb-14 tw-justify-center tw-items-center lg:tw-gap-12 tw-flex tw-flex-col lg:tw-flex-row">
 
           <div className="tw-h-full lg:tw-w-min tw-w-full tw-px-4 lg:tw-px-10 tw-self-stretch tw-flex-col tw-justify-start tw-items-center tw-inline-flex">

@@ -16,7 +16,7 @@ const AdditionalInfo = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-grow tw-gap-4 xl:tw-pl-16 tw-py-4 tw-min-h-80">
+            <div className="tw-flex tw-flex-col tw-grow tw-gap-4 max-sm:tw-px-2 xl:tw-pl-16 tw-h-full">
                 <NumberWithUnitInputField 
                     label="Total Area"
                     field="area"

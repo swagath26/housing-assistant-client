@@ -16,7 +16,7 @@ const StepIndicator = () => {
     ];
 
     return (
-        <ul className="tw-flex tw-justify-evenly lg:tw-justify-center lg:tw-flex-col tw-w-full lg:tw-h-full tw-bg-slate-700 tw-py-6 lg:tw-py-8 lg:tw-px-10 lg:tw-gap-8
+        <ul className="tw-flex tw-justify-evenly lg:tw-flex-col tw-w-full lg:tw-h-full tw-bg-slate-700 tw-py-6 lg:tw-py-6 lg:tw-px-10 lg:tw-gap-6
             lg:tw-rounded-lg">
             
             {stepInfo.map((step, index) => (

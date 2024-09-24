@@ -16,7 +16,7 @@ const SelectionInput = ({ label, field, options, required=false, formData, updat
                 </div>
             }
 
-            <div className='tw-flex tw-gap-3 lg:tw-gap-4 tw-flex-wrap'>
+            <div className='tw-flex tw-gap-2 sm:tw-gap-3 lg:tw-gap-4 tw-flex-wrap'>
 
                 {options.map((option, index) => (
                     <label 

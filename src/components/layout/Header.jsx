@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className="header tw-h-[10dvh] lg:tw-h-[15dvh] py-0 w-100 tw-content-center">
 
-    <nav className="navbar navbar-expand-md py-0 tw-flex tw-px-6 tw-gap-4">
+    <nav className="navbar navbar-expand-md py-0 tw-flex tw-px-[3vw] tw-gap-4">
         <div className='tw-flex tw-grow tw-justify-between tw-items-center'>
           <Link to="/" className="navbar-brand">
             <div>
@@ -39,7 +39,9 @@ const Header = () => {
               <ul className='navbar-nav tw-flex tw-gap-8'>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/home" className="nav-link">Home</Link></li>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link to="/buy" className="nav-link">Buy</Link></li>
-                <li className="nav-item px-2" data-bs-dismiss="offcanvas" data-bs-toggle={isAuthenticated ? '' : 'modal'} data-bs-target='#accounts'><Link to="/sell_home" className="nav-link">Sell</Link></li>
+                <li className="nav-item px-2" data-bs-dismiss="offcanvas">
+                  <div data-bs-toggle={isAuthenticated ? '' : 'modal'} data-bs-target='#accounts'><Link to="/sell_home" className="nav-link">Sell</Link></div>
+                </li>
                 <li className="nav-item px-2" data-bs-dismiss="offcanvas"><Link className="nav-link">About</Link></li>
               </ul>
             </div>

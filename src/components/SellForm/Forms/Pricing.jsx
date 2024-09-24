@@ -57,12 +57,12 @@ const Pricing = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-justify-center tw-grow tw-pb-4 xl:tw-pl-8 tw-gap-8 tw-h-full">
+            <div className="tw-flex tw-flex-col tw-grow tw-pb-4 max-sm:tw-px-2 xl:tw-pl-8 tw-gap-6 2xl:tw-gap-8 tw-h-full">
 
                 <SelectionInput 
                     label="Select the type of property"
                     field="home_type"
-                    options={['House', 'Apartment', 'Studio', 'Multi-Family']}
+                    options={['Apartment', 'Multi-Family', 'House', 'Studio']}
                     formData={formData}
                     updateFormData={updateFormData}
                     isValidated={isValidated}

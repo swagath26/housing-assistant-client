@@ -37,7 +37,7 @@ const UploadImages = () => {
             noValidate
         >
 
-            <div className="tw-flex tw-flex-col tw-grow tw-py-4 tw-min-h-80">
+            <div className="tw-flex tw-flex-col tw-grow tw-py-4 tw-h-full">
                 
                 <div className="tw-flex tw-items-center tw-justify-center tw-w-full tw-h-full">
                     <label htmlFor="images_input" 
@@ -88,7 +88,7 @@ const UploadImages = () => {
                         <button 
                             type="button" 
                             onClick={(event) => clearImageUpload(event, formData, updateFormData)}
-                            className="tw-font-medium tw-px-4 tw-mx-6 tw-text-slate-900" 
+                            className="tw-font-medium tw-p-2 tw-mr-4 md:tw-mr-8 tw-text-slate-900" 
                         >
                             Clear
                         </button>

@@ -25,7 +25,7 @@ const FormTemplate = () => {
     const {component, title, info} = renderForm[currentStep] || renderForm[0];
 
     return (
-        <div className="tw-flex tw-flex-col tw-h-full tw-px-4 lg:tw-px-8">
+        <div className="tw-flex tw-flex-col tw-h-full tw-px-1 sm:tw-px-4 lg:tw-px-8">
             <div className="tw-pb-4">
                 <h1 className="tw-text-2xl lg:tw-text-3xl tw-text-slate-900 tw-font-medium tw-py-2">
                     {title}
